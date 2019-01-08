@@ -12,6 +12,11 @@ import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
 
+import systemSet from './modules/systemSet'
+import systemStatus from './modules/systemStatus'
+import personAndAuthor from './modules/personAndAuthor'
+import extensions from './modules/extensions.js'
+
 /** note: Submenu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
  **/
@@ -197,90 +202,10 @@ export const asyncRouterMap = [
   chartsRouter,
   nestedRouter,
   tableRouter,
-  // TODO:左侧菜单 系统设置
-  {
-    path: '/systemSet',
-    component: Layout,
-    name: 'systemSet',
-    meta: {
-      title: 'systemSet',
-      icon: 'systemSet'
-    },
-    children: [
-      {
-        path: 'docSource',
-        component: () => import('@/views/example/create'),
-        name: 'CreateArticle',
-        meta: { title: 'docSource', icon: 'docSource' }
-      },
-      {
-        path: 'temManager',
-        component: () => import('@/views/example/edit'),
-        name: 'temManager',
-        meta: { title: 'temManager', icon: 'temManager' }
-      },
-      {
-        path: 'comComponent',
-        component: () => import('@/views/example/list'),
-        name: 'comComponent',
-        meta: { title: 'comComponent', icon: 'comComponent' }
-      },
-      {
-        path: 'helpDoc',
-        component: () => import('@/views/example/list'),
-        name: 'helpDoc',
-        meta: { title: 'helpDoc', icon: 'helpDoc' }
-      }
-    ]
-  },
-  // TODO:左侧菜单 系统状态
-  {
-    path: '/systemStatus',
-    component: Layout,
-    name: 'systemStatus',
-    meta: {
-      title: 'systemStatus',
-      icon: 'systemStatus'
-    },
-    children: [
-      {
-        path: 'logs',
-        component: () => import('@/views/example/create'),
-        name: 'logs',
-        meta: { title: 'logs', icon: 'logs' }
-      },
-      {
-        path: 'backTask',
-        component: () => import('@/views/example/edit'),
-        name: 'backTask',
-        meta: { title: 'backTask', icon: 'backTask' }
-      }
-    ]
-  },
-  // TODO:左侧菜单 人员和权限
-  {
-    path: '/personAndAuthor',
-    component: Layout,
-    name: 'personAndAuthor',
-    meta: {
-      title: 'personAndAuthor',
-      icon: 'personAndAuthor'
-    },
-    children: [
-      {
-        path: 'character',
-        component: () => import('@/views/example/create'),
-        name: 'character',
-        meta: { title: 'character', icon: 'character' }
-      },
-      {
-        path: 'personRole',
-        component: () => import('@/views/example/list'),
-        name: 'personRole',
-        meta: { title: 'personRole', icon: 'personRole' }
-      }
-    ]
-  },
+  systemSet,
+  systemStatus,
+  personAndAuthor,
+  extensions,
 
   {
     path: '/example',
@@ -507,88 +432,8 @@ export const serverRouterMap = [
       }
     ]
   },
-  // TODO:左侧菜单 系统设置
-  {
-    path: '/systemSet',
-    component: Layout,
-    name: 'systemSet',
-    meta: {
-      title: 'systemSet',
-      icon: 'systemSet'
-    },
-    children: [
-      {
-        path: 'docSource',
-        component: () => import('@/views/example/create'),
-        name: 'CreateArticle',
-        meta: { title: 'docSource', icon: 'docSource' }
-      },
-      {
-        path: 'temManager',
-        component: () => import('@/views/example/edit'),
-        name: 'temManager',
-        meta: { title: 'temManager', icon: 'temManager' }
-      },
-      {
-        path: 'comComponent',
-        component: () => import('@/views/example/list'),
-        name: 'ArticleList',
-        meta: { title: 'comComponent', icon: 'comComponent' }
-      },
-      {
-        path: 'helpDoc',
-        component: () => import('@/views/example/list'),
-        name: 'helpDoc',
-        meta: { title: 'helpDoc', icon: 'helpDoc' }
-      }
-    ]
-  },
-  // TODO:左侧菜单 系统状态
-  {
-    path: '/systemStatus',
-    component: Layout,
-    name: 'systemStatus',
-    meta: {
-      title: 'systemStatus',
-      icon: 'systemStatus'
-    },
-    children: [
-      {
-        path: 'logs',
-        component: () => import('@/views/example/create'),
-        name: 'logs',
-        meta: { title: 'logs', icon: 'logs' }
-      },
-      {
-        path: 'backTask',
-        component: () => import('@/views/example/edit'),
-        name: 'backTask',
-        meta: { title: 'backTask', icon: 'backTask' }
-      }
-    ]
-  },
-  // TODO:左侧菜单 人员和权限
-  {
-    path: '/personAndAuthor',
-    component: Layout,
-    name: 'personAndAuthor',
-    meta: {
-      title: 'personAndAuthor',
-      icon: 'personAndAuthor'
-    },
-    children: [
-      {
-        path: 'character',
-        component: () => import('@/views/example/create'),
-        name: 'character',
-        meta: { title: 'character', icon: 'character' }
-      },
-      {
-        path: 'personRole',
-        component: () => import('@/views/example/list'),
-        name: 'personRole',
-        meta: { title: 'personRole', icon: 'personRole' }
-      }
-    ]
-  }
+  systemSet,
+  systemStatus,
+  personAndAuthor,
+  extensions
 ]
