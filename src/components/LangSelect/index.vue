@@ -39,6 +39,7 @@ export default {
         message: 'Switch Language Success',
         type: 'success'
       })
+      window.location.reload()
     }
   }
 }

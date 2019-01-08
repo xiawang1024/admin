@@ -120,7 +120,7 @@ export const constantRouterMap = [
         path: 'doc',
         component: () => import('@/views/webSite/index'),
         name: 'webSite',
-        meta: { title: 'webSite', icon: 'webSite', noCache: true },
+        meta: { title: 'webSite', icon: 'webSite' },
         hidden: true,
         // redirect: '/website/doc/create',
         children: [
@@ -128,12 +128,12 @@ export const constantRouterMap = [
             path: 'create',
             component: () => import('@/views/example/create'),
             name: 'create',
-            meta: { title: 'create' },
+            meta: { title: 'create', noCache: true },
             hidden: true
           },
           {
-            path: 'create',
-            component: () => import('@/views/example/create'),
+            path: 'guide',
+            component: () => import('@/views/documentation/index'),
             name: 'create',
             meta: { title: 'create' },
             hidden: true
@@ -394,7 +394,7 @@ export const asyncRouterMap = [
 ]
 
 export const routerMap = {
-  Example: () => import('@/views/layout/Layout'),
+  Layout: () => import('@/views/layout/Layout'),
   CreateArticle: () => import('@/views/example/create'),
   EditArticle: () => import('@/views/example/edit'),
   ArticleList: () => import('@/views/example/list')
@@ -403,7 +403,7 @@ export const routerMap = {
 export const serverRouterMap = [
   {
     path: '/example',
-    component: 'Example',
+    component: 'Layout',
     redirect: '/example/list',
     name: 'Example',
     meta: {
@@ -432,6 +432,53 @@ export const serverRouterMap = [
       }
     ]
   },
+  // {
+  //   path: '/extensions',
+  //   component: 'Layout',
+  //   name: 'extensions',
+  //   meta: {
+  //     title: 'extensions',
+  //     icon: 'extensions'
+  //   },
+  //   children: [
+  //     {
+  //       /**
+  //        * CDN 刷新
+  //        */
+  //       path: 'cdnFresh',
+  //       component: 'CreateArticle',
+  //       name: 'cdnFresh',
+  //       meta: { title: 'cdnFresh', icon: 'cdnFresh' }
+  //     },
+  //     {
+  //       /**
+  //        * 扩展字段
+  //        */
+  //       path: 'extendField',
+  //       component: () => import('@/views/example/list'),
+  //       name: 'extendField',
+  //       meta: { title: 'extendField', icon: 'extendField' }
+  //     },
+  //     {
+  //       /**
+  //        * 综合统计
+  //        */
+  //       path: 'statistics',
+  //       component: () => import('@/views/example/list'),
+  //       name: 'statistics',
+  //       meta: { title: 'statistics', icon: 'statistics' }
+  //     },
+  //     {
+  //       /**
+  //        * 采集源配置
+  //        */
+  //       path: 'acqSource',
+  //       component: () => import('@/views/example/list'),
+  //       name: 'acqSource',
+  //       meta: { title: 'acqSource', icon: 'acqSource' }
+  //     }
+  //   ]
+  // }
   systemSet,
   systemStatus,
   personAndAuthor,

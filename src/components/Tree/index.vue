@@ -3,6 +3,7 @@
     <el-tree
       :data="treeData"
       :props="defaultProps"
+      :highlight-current="true"
       @node-click="handleNodeClick"
       @node-contextmenu="handleNodeContextmenu"
     />
@@ -85,6 +86,7 @@ export default {
   methods: {
     handleNodeClick(one, two, three) {
       console.log(one, two, three)
+      this.menuVisible = false
     },
     handleNodeContextmenu(event, object, value, element) {
       const { clientWidth, clientHeight, nodeName } = event.target
