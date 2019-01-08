@@ -6,40 +6,6 @@
       @node-click="handleNodeClick"
       @node-contextmenu="handleNodeContextmenu"
     />
-    <!-- <div v-show="menuVisible">
-      <el-menu
-        id="rightClickMenu"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-      >
-        <el-menu-item
-          index="1"
-          class="menuItem"
-        >
-          <span slot="title">添加分类</span>
-        </el-menu-item>
-        <el-menu-item
-          index="2"
-          class="menuItem"
-        >
-          <span slot="title">修改分类</span>
-        </el-menu-item>
-        <el-menu-item
-          index="3"
-          class="menuItem"
-        >
-          <span slot="title">删除分类</span>
-        </el-menu-item>
-        <hr style="color: #ffffff">
-        <el-menu-item
-          index="4"
-          class="menuItem"
-        >
-          <span slot="title">添加标签</span>
-        </el-menu-item>
-      </el-menu>
-    </div> -->
     <context-menu
       :visible="menuVisible"
       :left="menuLeft"
