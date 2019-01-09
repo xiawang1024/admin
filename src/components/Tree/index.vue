@@ -1,9 +1,17 @@
 <template>
   <div>
+    <el-input
+      v-model="filterText"
+      placeholder="搜索栏目"
+      prefix-icon="el-icon-search"
+      size="mini"
+      clearable/>
     <el-tree
+      ref="websitTree"
       :data="treeData"
       :props="defaultProps"
       :highlight-current="true"
+      :filter-node-method="filterNode"
       @node-click="handleNodeClick"
       @node-contextmenu="handleNodeContextmenu"
     />
@@ -11,6 +19,7 @@
       :visible="menuVisible"
       :left="menuLeft"
       :top="menuTop"
+      @contextMenuSelect="handlerContextMenu"
     />
   </div>
 </template>
@@ -18,12 +27,13 @@
 <script>
 import ContextMenu from '@/components/ContextMenu/index.vue'
 export default {
-  name: 'Tree',
+  name: 'WebTree',
   components: {
     ContextMenu
   },
   data() {
     return {
+      filterText: '',
       menuVisible: false,
       menuLeft: '0px',
       menuTop: '0px',
@@ -83,7 +93,15 @@ export default {
       }
     }
   },
+  watch: {
+    filterText(val) {
+      this.$refs.websitTree.filter(val)
+    }
+  },
   methods: {
+    handlerContextMenu(type) {
+      this.$emit('conponentType', type)
+    },
     handleNodeClick(one, two, three) {
       console.log(one, two, three)
       this.menuVisible = false
@@ -106,6 +124,10 @@ export default {
       } else {
         return false
       }
+    },
+    filterNode(value, data) {
+      if (!value) return true
+      return data.label.indexOf(value) !== -1
     }
   }
 }

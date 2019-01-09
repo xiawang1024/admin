@@ -121,24 +121,24 @@ export const constantRouterMap = [
         component: () => import('@/views/webSite/index'),
         name: 'webSite',
         meta: { title: 'webSite', icon: 'webSite' },
-        hidden: true,
-        // redirect: '/website/doc/create',
-        children: [
-          {
-            path: 'create',
-            component: () => import('@/views/example/create'),
-            name: 'create',
-            meta: { title: 'create', noCache: true },
-            hidden: true
-          },
-          {
-            path: 'guide',
-            component: () => import('@/views/documentation/index'),
-            name: 'create',
-            meta: { title: 'create' },
-            hidden: true
-          }
-        ]
+        hidden: true
+        // // redirect: '/website/doc/create',
+        // children: [
+        //   {
+        //     path: 'create',
+        //     component: () => import('@/views/example/create'),
+        //     name: 'create',
+        //     meta: { title: 'create', noCache: true },
+        //     hidden: true
+        //   },
+        //   {
+        //     path: 'guide',
+        //     component: () => import('@/views/documentation/index'),
+        //     name: 'create',
+        //     meta: { title: 'create' },
+        //     hidden: true
+        //   }
+        // ]
       }
     ]
   }

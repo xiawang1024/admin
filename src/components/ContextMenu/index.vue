@@ -117,16 +117,7 @@ export default {
       menu.style.top = this.top
     },
     handleSelect(key, keyPath) {
-      console.log('------------------------------------')
-      console.log(key, keyPath)
-      console.log('------------------------------------')
-      const random = Math.random()
-      console.log(random)
-      if (random > 0.5) {
-        this.$router.push('/webSite/doc/create')
-      } else {
-        this.$router.push('/webSite/doc/guide')
-      }
+      this.$emit('contextMenuSelect', key)
     }
   }
 }

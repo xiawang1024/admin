@@ -14,13 +14,18 @@
             wrap-class="scrollbar-wrapper"
             style="height:100%;"
           >
-            <tree/>
+            <tree @conponentType="handlerConponentType" />
           </el-scrollbar>
         </div>
       </template>
       <template slot="paneR">
         <div class="right-container">
-          <router-view />
+          <el-scrollbar
+            wrap-class="scrollbar-wrapper"
+            style="height:100%;"
+          >
+            <WebComponents :component-type="componentType"/>
+          </el-scrollbar>
         </div>
       </template>
     </split-pane>
@@ -31,13 +36,22 @@
 <script>
 import splitPane from 'vue-splitpane'
 import Tree from '@/components/Tree'
+import WebComponents from '@/components/WebComponents'
 
 export default {
   name: 'WebSiteWrap',
-  components: { splitPane, Tree },
+  components: { splitPane, Tree, WebComponents },
+  data() {
+    return {
+      componentType: '1'
+    }
+  },
   methods: {
     resize() {
       console.log('resize')
+    },
+    handlerConponentType(type) {
+      this.componentType = `${type}`
     }
   }
 }
