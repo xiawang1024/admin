@@ -1,10 +1,11 @@
 <template>
   <div class="components-container">
-
+    <WebSiteTag/>
     <split-pane
       :min-percent="10"
       :max-percent="30"
       :default-percent="15"
+      class="pane-wrap"
       split="vertical"
       @resize="resize"
     >
@@ -24,7 +25,7 @@
             wrap-class="scrollbar-wrapper"
             style="height:100%;"
           >
-            <WebComponents :component-type="componentType"/>
+            <WebComponents :component-type="componentType" />
           </el-scrollbar>
         </div>
       </template>
@@ -34,17 +35,36 @@
 </template>
 
 <script>
+import WebSiteTag from '@/components/WebSiteTag'
 import splitPane from 'vue-splitpane'
 import Tree from '@/components/Tree'
 import WebComponents from '@/components/WebComponents'
 
 export default {
   name: 'WebSiteWrap',
-  components: { splitPane, Tree, WebComponents },
+  components: { WebSiteTag, splitPane, Tree, WebComponents },
   data() {
     return {
       componentType: '1'
     }
+  },
+  // TODO:webSiteViewType
+  beforeRouteEnter(to, from, next) {
+    const { path } = to
+    if (path === '/website/doc') {
+      next(vm => {
+        vm.$store.dispatch('setViewType', { isShow: true })
+      })
+    }
+    next()
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log(from)
+    const { path } = from
+    if (path === '/website/doc') {
+      this.$store.dispatch('setViewType', { isShow: false })
+    }
+    next()
   },
   methods: {
     resize() {
@@ -61,9 +81,11 @@ export default {
 .components-container {
   position: relative;
   height: calc(100vh - 124px);
-  margin: 20px 10px;
+  margin: 12px 10px;
 }
-
+.pane-wrap {
+  margin-top: 12px;
+}
 .left-container {
   /* background-color: #f38181; */
   height: 100%;

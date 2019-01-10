@@ -1,5 +1,6 @@
 <template>
   <el-form
+    v-show="viewType.isShow"
     ref="form"
     label-width="80px"
     class="form-wrap"
@@ -9,11 +10,11 @@
       class="form-item"
     >
       <el-select
-        v-model="selectedType"
+        v-model="viewType"
         placeholder="请选择"
       >
         <el-option
-          v-for="item in viewType"
+          v-for="item in viewTypeList"
           :key="item.value"
           :label="item.label"
           :value="item.value"
@@ -24,37 +25,43 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      viewType: [
+      viewTypeList: [
         {
-          value: '选项1',
+          value: '1',
           label: '文档'
         },
         {
-          value: '选项2',
+          value: '2',
           label: '模板'
         },
         {
-          value: '选项3',
+          value: '3',
           label: '图片组'
         },
         {
-          value: '选项4',
+          value: '4',
           label: '自定义列表'
         },
         {
-          value: '选项5',
+          value: '5',
           label: 'HTML片段'
         },
         {
-          value: '选项6',
+          value: '6',
           label: '废件箱'
         }
-      ],
-      selectedType: '选项1'
+      ]
     }
+  },
+  computed: {
+    ...mapGetters(['viewType'])
+  },
+  beforeRouteEnter(to, form, next) {
+    console.log(to)
   }
 }
 </script>

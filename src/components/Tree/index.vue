@@ -5,7 +5,8 @@
       placeholder="搜索栏目"
       prefix-icon="el-icon-search"
       size="mini"
-      clearable/>
+      clearable
+    />
     <el-tree
       ref="websitTree"
       :data="treeData"
@@ -34,6 +35,7 @@ export default {
   data() {
     return {
       filterText: '',
+      webSitTags: [],
       menuVisible: false,
       menuLeft: '0px',
       menuTop: '0px',
@@ -99,14 +101,18 @@ export default {
     }
   },
   methods: {
+    // TODO:contextMenu 选择
     handlerContextMenu(type) {
       this.$emit('conponentType', type)
     },
-    handleNodeClick(one, two, three) {
-      console.log(one, two, three)
+    // TODO:左键点击
+    handleNodeClick(object, node, element) {
+      console.log(object, node, element)
       this.menuVisible = false
+      this.findParentNode(node)
     },
-    handleNodeContextmenu(event, object, value, element) {
+    // TODO:右键点击
+    handleNodeContextmenu(event, object, node, element) {
       const { clientWidth, clientHeight, nodeName } = event.target
       if (nodeName.toLowerCase() === 'span') {
         if (this.objectID !== object.id) {
@@ -118,7 +124,6 @@ export default {
         document.addEventListener('click', e => {
           this.menuVisible = false
         })
-
         this.menuLeft = `${event.clientX + clientWidth / 2}px`
         this.menuTop = `${event.clientY + clientHeight}px`
       } else {
@@ -128,6 +133,16 @@ export default {
     filterNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
+    },
+
+    findParentNode(node) {
+      if (node.parent) {
+        this.findParentNode(node.parent)
+      }
+      const nodeVal = {}
+      nodeVal.id = node.data.id
+      nodeVal.label = node.data.label
+      this.webSitTags.unshift(nodeVal)
     }
   }
 }
