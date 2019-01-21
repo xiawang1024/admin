@@ -20,59 +20,59 @@
 <script>
 const MENU_LIST = [
   {
-    id: 1,
+    id: '1',
     label: '新建文档'
   },
   {
-    id: 2,
+    id: '2',
     label: '增量发布'
   },
   {
-    id: 3,
+    id: '3',
     label: '发布栏目首页'
   },
   {
-    id: 4,
+    id: '4',
     label: '修改栏目'
   },
   {
-    id: 5,
+    id: '5',
     label: '新建子栏目'
   },
   {
-    id: 6,
+    id: '6',
     label: '批量发布'
   },
   {
-    id: 7,
+    id: '7',
     label: '栏目模板'
   },
   {
-    id: 8,
+    id: '8',
     label: '扩展字段'
   },
   {
-    id: 9,
+    id: '9',
     label: '标记设置'
   },
   {
-    id: 10,
+    id: '10',
     label: '图片水印'
   },
   {
-    id: 11,
+    id: '11',
     label: '图片组'
   },
   {
-    id: 12,
+    id: '12',
     label: '自定义文档列表'
   },
   {
-    id: 13,
+    id: '13',
     label: '静态网页片段'
   },
   {
-    id: 14,
+    id: '14',
     label: '废件箱'
   }
 ]
@@ -117,7 +117,8 @@ export default {
       menu.style.top = this.top
     },
     handleSelect(key, keyPath) {
-      this.$emit('contextMenuSelect', key)
+      const selectMenu = this.menuList.filter(item => item.id === key)
+      this.$store.dispatch('setContextMenu', selectMenu[0])
     }
   }
 }

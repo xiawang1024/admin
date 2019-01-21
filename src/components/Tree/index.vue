@@ -20,7 +20,6 @@
       :visible="menuVisible"
       :left="menuLeft"
       :top="menuTop"
-      @contextMenuSelect="handlerContextMenu"
     />
   </div>
 </template>
@@ -101,15 +100,12 @@ export default {
     }
   },
   methods: {
-    // TODO:contextMenu 选择
-    handlerContextMenu(type) {
-      this.$emit('conponentType', type)
-    },
     // TODO:左键点击
     handleNodeClick(object, node, element) {
       console.log(object, node, element)
       this.menuVisible = false
-      this.findParentNode(node)
+      this.webSitTags = []
+      this.generateTags(node)
     },
     // TODO:右键点击
     handleNodeContextmenu(event, object, node, element) {
@@ -118,6 +114,7 @@ export default {
         if (this.objectID !== object.id) {
           this.objectID = object.id
           this.menuVisible = true
+          this.generateTags(node)
         } else {
           this.menuVisible = !this.menuVisible
         }
@@ -134,15 +131,25 @@ export default {
       if (!value) return true
       return data.label.indexOf(value) !== -1
     },
-
+    /**
+     * 生成treeTag
+     */
+    generateTags(node) {
+      this.webSitTags = []
+      this.findParentNode(node)
+    },
     findParentNode(node) {
       if (node.parent) {
         this.findParentNode(node.parent)
+        const nodeVal = {}
+        nodeVal.id = node.data.id
+        nodeVal.label = node.data.label
+        this.webSitTags.push(nodeVal)
+      } else {
+        const webSiteTags = this.webSitTags
+
+        this.$store.dispatch('setTreeTags', webSiteTags)
       }
-      const nodeVal = {}
-      nodeVal.id = node.data.id
-      nodeVal.label = node.data.label
-      this.webSitTags.unshift(nodeVal)
     }
   }
 }

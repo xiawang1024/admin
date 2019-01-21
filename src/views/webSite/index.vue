@@ -1,6 +1,6 @@
 <template>
   <div class="components-container">
-    <WebSiteTag/>
+    <WebSiteTag />
     <split-pane
       :min-percent="10"
       :max-percent="30"
@@ -15,7 +15,7 @@
             wrap-class="scrollbar-wrapper"
             style="height:100%;"
           >
-            <tree @conponentType="handlerConponentType" />
+            <tree />
           </el-scrollbar>
         </div>
       </template>
@@ -25,7 +25,8 @@
             wrap-class="scrollbar-wrapper"
             style="height:100%;"
           >
-            <WebComponents :component-type="componentType" />
+            <WebComponents :component-type="contextMenu.id" />
+            {{ contextMenu }}
           </el-scrollbar>
         </div>
       </template>
@@ -39,6 +40,8 @@ import WebSiteTag from '@/components/WebSiteTag'
 import splitPane from 'vue-splitpane'
 import Tree from '@/components/Tree'
 import WebComponents from '@/components/WebComponents'
+
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'WebSiteWrap',
@@ -66,12 +69,12 @@ export default {
     }
     next()
   },
+  computed: {
+    ...mapGetters(['contextMenu'])
+  },
   methods: {
     resize() {
       console.log('resize')
-    },
-    handlerConponentType(type) {
-      this.componentType = `${type}`
     }
   }
 }
