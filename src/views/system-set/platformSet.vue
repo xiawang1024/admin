@@ -1,11 +1,12 @@
 <template>
   <div class="platform-container">
     <div class="tool-bar">
-      <el-button type="primary" @click="addDocSourceDialogVisible = true">新增</el-button>
+      <el-button type="primary" @click="addPlatFormVisible = true">新增</el-button>
     </div>
     <el-table :data="siteList" style="width: 100%">
-      <el-table-column prop="plat" label="来源名称"></el-table-column>
-      <el-table-column prop="desc" label="来源路径"></el-table-column>
+      <el-table-column prop="plat" label="平台"></el-table-column>
+      <el-table-column prop="desc" label="描述"></el-table-column>
+      <el-table-column prop="fileName" label="文件名"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button type="prime" @click="beforeAlter(scope.$index, scope.row)">修改</el-button>
@@ -14,32 +15,38 @@
       </el-table-column>
     </el-table>
 
-    <el-dialog title="添加文稿来源" :visible.sync="addDocSourceDialogVisible">
-      <el-form :model="docSourceForm">
-        <el-form-item label="来源名称">
-          <el-input v-model="docSourceForm.name"></el-input>
+    <el-dialog title="添加发布平台" :visible.sync="addPlatFormVisible">
+      <el-form :model="platForm">
+        <el-form-item label="平台">
+          <el-input v-model="platForm.plat"></el-input>
         </el-form-item>
-        <el-form-item label="来源路径">
-          <el-input v-model="docSourceForm.location"></el-input>
+        <el-form-item label="描述">
+          <el-input v-model="platForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="文件名">
+          <el-input v-model="platForm.fileName"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="addDocSourceDialogVisible = false">取 消</el-button>
+        <el-button @click="addPlatFormVisible = false">取 消</el-button>
         <el-button type="primary" @click="handleAdd()">确 定</el-button>
       </div>
     </el-dialog>
 
-    <el-dialog title="修改文稿来源" :visible.sync="alterDocSourceDialogVisible">
-      <el-form :model="docSourceForm">
-        <el-form-item label="来源名称">
-          <el-input v-model="docSourceForm.name"></el-input>
+    <el-dialog title="修改发布平台" :visible.sync="alterPlatFormVisible">
+      <el-form :model="platForm">
+        <el-form-item label="平台">
+          <el-input v-model="platForm.plat"></el-input>
         </el-form-item>
-        <el-form-item label="来源路径">
-          <el-input v-model="docSourceForm.location"></el-input>
+        <el-form-item label="描述">
+          <el-input v-model="platForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="文件名">
+          <el-input v-model="platForm.fileName"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="alterDocSourceDialogVisible = false">取 消</el-button>
+        <el-button @click="alterPlatFormVisible = false">取 消</el-button>
         <el-button type="primary" @click="handleAlter()">确 定</el-button>
       </div>
     </el-dialog>
@@ -48,7 +55,7 @@
 
 <script>
 export default {
-  name: "DocSource",
+  name: "PlatformSet",
   data() {
     return {
       siteList: [
@@ -56,30 +63,30 @@ export default {
           id: "1",
           plat: "网站名称",
           desc: "site.name",
-          fileName: ""
+          fileName: "index.html"
         },
         {
           id: "2",
           plat: "生产服务器",
           desc: "factory.domain",
-          fileName: ""
+          fileName: "index.js"
         },
         {
           id: "3",
           plat: "发布根目录",
           desc: "publish.root",
-          fileName: ""
+          fileName: "index.css"
         },
         {
           id: "4",
           plat: "发布域名",
           desc: "site.domain",
-          fileName: ""
+          fileName: "index.html"
         }
       ],
-      addDocSourceDialogVisible: false,
-      alterDocSourceDialogVisible: false,
-      docSourceForm: {
+      addPlatFormVisible: false,
+      alterPlatFormVisible: false,
+      platForm: {
         id: "",
         plat: "",
         desc: "",
@@ -92,10 +99,11 @@ export default {
       console.log("新增");
     },
     beforeAlter(index, row) {
-      this.docSourceForm.id = row.id;
-      this.docSourceForm.plat = row.plat;
-      this.docSourceForm.desc = row.desc;
-      this.alterDocSourceDialogVisible = true;
+      this.platForm.id = row.id;
+      this.platForm.plat = row.plat;
+      this.platForm.desc = row.desc;
+      this.platForm.fileName = row.fileName;
+      this.alterPlatFormVisible = true;
     },
     handleAlter() {
       console.log("修改");
@@ -108,6 +116,11 @@ export default {
 </script>
 
 <style scoped>
+.el-button + .el-button {
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
 .platform-container {
   margin: 30px;
 }

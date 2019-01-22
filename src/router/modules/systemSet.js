@@ -51,6 +51,16 @@ const systemSet = {
     },
     {
       /**
+       * 模板添加与修改
+       */
+      path: 'temForm',
+      component: () => import('@/views/system-set/temForm'),
+      name: 'temForm',
+      meta: { title: 'temForm', icon: 'temForm' },
+      hidden:true
+    },
+    {
+      /**
        * 资源文件管理
        */
       path: 'sourceManage',

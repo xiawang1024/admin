@@ -15,6 +15,11 @@ export default {
 </script>
 
 <style scoped>
+.el-button + .el-button {
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
 .tab-container {
   margin: 30px;
 }

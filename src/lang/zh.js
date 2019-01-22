@@ -69,6 +69,7 @@ export default {
     docSource: '文稿来源',
     platformSet: '发布平台设置',
     temManager: '模板管理',
+    temForm: '模板新增或修改',
     sourceManage: '资源文件管理',
     comComponent: '公用组件管理',
     helpDoc: '帮助文档管理',

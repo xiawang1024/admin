@@ -1,7 +1,7 @@
 <template>
   <div class="docSource-container">
     <div class="tool-bar">
-      <el-button type="primary" @click="addDocSourceDialogVisible = true">新增</el-button>
+      <el-button type="primary" @click="addDocSourceVisible = true">新增</el-button>
     </div>
     <el-table :data="siteList" style="width: 100%">
       <el-table-column prop="name" label="来源名称"></el-table-column>
@@ -14,7 +14,7 @@
       </el-table-column>
     </el-table>
 
-    <el-dialog title="添加文稿来源" :visible.sync="addDocSourceDialogVisible">
+    <el-dialog title="添加文稿来源" :visible.sync="addDocSourceVisible">
       <el-form :model="docSourceForm">
         <el-form-item label="来源名称">
           <el-input v-model="docSourceForm.name"></el-input>
@@ -24,12 +24,12 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="addDocSourceDialogVisible = false">取 消</el-button>
+        <el-button @click="addDocSourceVisible = false">取 消</el-button>
         <el-button type="primary" @click="handleAdd()">确 定</el-button>
       </div>
     </el-dialog>
 
-    <el-dialog title="修改文稿来源" :visible.sync="alterDocSourceDialogVisible">
+    <el-dialog title="修改文稿来源" :visible.sync="alterDocSourceVisible">
       <el-form :model="docSourceForm">
         <el-form-item label="来源名称">
           <el-input v-model="docSourceForm.name"></el-input>
@@ -39,7 +39,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="alterDocSourceDialogVisible = false">取 消</el-button>
+        <el-button @click="alterDocSourceVisible = false">取 消</el-button>
         <el-button type="primary" @click="handleAlter()">确 定</el-button>
       </div>
     </el-dialog>
@@ -73,8 +73,8 @@ export default {
           location: "site.domain"
         }
       ],
-      addDocSourceDialogVisible: false,
-      alterDocSourceDialogVisible: false,
+      addDocSourceVisible: false,
+      alterDocSourceVisible: false,
       docSourceForm: {
         id: "",
         name: "",
@@ -90,7 +90,7 @@ export default {
       this.docSourceForm.id = row.id;
       this.docSourceForm.name = row.name;
       this.docSourceForm.location = row.location;
-      this.alterDocSourceDialogVisible = true;
+      this.alterDocSourceVisible = true;
     },
     handleAlter() {
       console.log("修改");
@@ -103,6 +103,11 @@ export default {
 </script>
 
 <style scoped>
+.el-button + .el-button {
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
 .docSource-container {
   margin: 30px;
 }
