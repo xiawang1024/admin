@@ -72,6 +72,7 @@ export default {
     temForm: '模板新增或修改',
     sourceManage: '资源文件管理',
     comComponent: '公用组件管理',
+    componentForm: '公用组件新增或修改',
     helpDoc: '帮助文档管理',
     systemStatus: '系统状态',
     logs: '日志',

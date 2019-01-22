@@ -79,6 +79,16 @@ const systemSet = {
     },
     {
       /**
+       * 公共组件添加与修改
+       */
+      path: 'componentForm',
+      component: () => import('@/views/system-set/ComponentForm'),
+      name: 'componentForm',
+      meta: { title: 'componentForm', icon: 'componentForm' },
+      hidden:true
+    },
+    {
+      /**
        * 帮助文档管理
        */
       path: 'helpDoc',
