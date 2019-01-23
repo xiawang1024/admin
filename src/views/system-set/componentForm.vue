@@ -1,40 +1,48 @@
 <template>
   <div class="component-form-container">
-    <el-form :model="temForm">
+    <el-form :model="componentForm">
       <el-form-item label="组件名称">
-        <el-input v-model="temForm.name"></el-input>
+        <el-input v-model="componentForm.name"></el-input>
       </el-form-item>
       <el-form-item label="所属栏目">
         <el-cascader
           :options="options"
-          v-model="temForm.belongProgram"
+          v-model="componentForm.belongProgram"
           @change="selectProgram"
           change-on-select
           placeholder="请选择所属栏目"
         ></el-cascader>
       </el-form-item>
       <el-form-item label="描述">
-        <el-input type="textarea" :rows="2" v-model="temForm.desc"></el-input>
+        <el-input type="textarea" :rows="2" v-model="componentForm.desc"></el-input>
       </el-form-item>
 
-      <el-row :gutter="10">
-        <el-col :xs="24" :sm="12" :md="16" :lg="16" :xl="16">
-          <el-form-item label="组件内容">
-            <el-input type="textarea" :rows="15" class="content-textara" v-model="temForm.desc"></el-input>
+      <el-form-item label="变量列表">
+        <el-card class="varible-card">
+          <el-form-item
+            v-for="(component, index) in componentForm.components"
+            :label="'变量' + (index+1) "
+            :key="component.key"
+            :prop="'components.' + index + '.value'"
+            :rules="{
+      required: true, message: '变量不能为空', trigger: 'blur'
+    }"
+          >
+            <el-input v-model="component.name" placeholder="变量名称"></el-input>
+            <el-input v-model="component.value" placeholder="变量值"></el-input>是否必填：
+            <el-switch v-model="component.required" active-color="#13ce66"></el-switch>
+            <el-input v-model="component.application" placeholder="变量用途"></el-input>
+            <el-button @click.prevent="removeComponent(component)">删除</el-button>
           </el-form-item>
-        </el-col>
-        <el-col :xs="24" :sm="12" :md="8" :lg="8" :xl="8">
-          <el-form-item label="组件列表">
-            <el-card class="component-card">
-              <div class="component-box" v-for="component in componentList" :key="component.id">
-                <span class="component-lable">{{component.lable}}</span>
-                <el-button type="text" style="float:right">使用</el-button>
-                <div class="component-desc">{{component.desc}}</div>
-              </div>
-            </el-card>
+          <el-form-item>
+            <el-button @click="addComponent">新增变量</el-button>
           </el-form-item>
-        </el-col>
-      </el-row>
+        </el-card>
+      </el-form-item>
+
+      <el-form-item label="组件内容">
+        <el-input type="textarea" :rows="15" class="content-textara" v-model="componentForm.desc"></el-input>
+      </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">取 消</el-button>
@@ -140,25 +148,37 @@ export default {
           value: ""
         }
       ],
-      temForm: {
+      componentForm: {
         id: "",
         name: "",
-        type: "",
         belongProgram: [],
-        fitPlat: "",
-        isEffective: true,
         desc: "",
-        fileName: "",
-        temContent: ""
+        components: [],
+        content: ""
       }
     };
   },
   methods: {
     selectProgram() {
-      console.log(this.temForm.belongProgram);
+      console.log(this.componentForm.belongProgram);
     },
     search() {
       console.log("搜索" + this.selectWebSite + "---" + this.searchTem);
+    },
+    addComponent() {
+      this.componentForm.components.push({
+        name: "",
+        value: "",
+        required: false,
+        application: "",
+        key: Date.now()
+      });
+    },
+    removeComponent(item) {
+      var index = this.componentForm.components.indexOf(item);
+      if (index !== -1) {
+        this.componentForm.components.splice(index, 1);
+      }
     },
     beforeAdd() {
       this.dialogTitle = "添加组件";
@@ -168,13 +188,13 @@ export default {
       console.log("添加");
     },
     beforeAlter(index, row) {
-      this.temForm.id = row.id;
-      this.temForm.name = row.name;
-      this.temForm.type = row.type;
-      this.temForm.belongProgram = row.belongProgram;
-      this.temForm.fitPlat = row.fitPlat;
-      this.temForm.desc = row.desc;
-      this.temForm.createTime = row.createTime;
+      this.componentForm.id = row.id;
+      this.componentForm.name = row.name;
+      this.componentForm.type = row.type;
+      this.componentForm.belongProgram = row.belongProgram;
+      this.componentForm.fitPlat = row.fitPlat;
+      this.componentForm.desc = row.desc;
+      this.componentForm.createTime = row.createTime;
       this.dialogTitle = "修改组件";
       this.dialogVisible = true;
     },
@@ -207,10 +227,19 @@ export default {
   margin-bottom: 10px;
 }
 
-.component-card {
+.varible-card {
   width: 100%;
-  height: 320px;
+  min-height: 100px;
+  max-height: 300px;
   overflow-y: scroll;
+}
+
+.varible-card .el-input {
+  width: auto;
+}
+
+.varible-card .el-form-item {
+  margin-bottom: 20px;
 }
 
 .component-box {

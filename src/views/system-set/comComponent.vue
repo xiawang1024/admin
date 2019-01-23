@@ -36,6 +36,18 @@
         </template>
       </el-table-column>
     </el-table>
+    
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="pageNum"
+      :page-sizes="[10,30,60,100]"
+      :page-size="pageSize"
+      background
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="totalCount"
+      style="float: right"
+    ></el-pagination>
   </div>
 </template>
 
@@ -86,7 +98,10 @@ export default {
         }
       ],
       selectProgram: 1,
-      searchComponent: ""
+      searchComponent: "",
+      pageNum: 1, //分页当前页
+      pageSize: 10,
+      totalCount: 0
     };
   },
   methods: {
@@ -112,6 +127,15 @@ export default {
     },
     handleDelete(index, row) {
       console.log("删除" + row.id);
+    },
+    //表格分页处理
+    handleSizeChange(val) {
+      this.pageSize = val;
+      this.getTableData();
+    },
+    handleCurrentChange(val) {
+      this.pageNum = val;
+      this.getTableData();
     }
   }
 };
