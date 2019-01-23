@@ -15,7 +15,7 @@ const personAndAuthor = {
        * 权限分组
        */
       path: 'permissionGroup',
-      component: () => import('@/views/example/create'),
+      component: () => import('@/views/personAndAuthor/permissionGroup'),
       name: 'permissionGroup',
       meta: { title: 'permissionGroup', icon: 'permissionGroup' }
     },
@@ -24,7 +24,7 @@ const personAndAuthor = {
        * 角色设定
        */
       path: 'character',
-      component: () => import('@/views/example/create'),
+      component: () => import('@/views/personAndAuthor/character'),
       name: 'character',
       meta: { title: 'character', icon: 'character' }
     },
@@ -33,7 +33,7 @@ const personAndAuthor = {
        * 分配人员角色
        */
       path: 'personRole',
-      component: () => import('@/views/example/list'),
+      component: () => import('@/views/personAndAuthor/personRole'),
       name: 'personRole',
       meta: { title: 'personRole', icon: 'personRole' }
     },
@@ -42,7 +42,7 @@ const personAndAuthor = {
        * 系统功能
        */
       path: 'systemFunc',
-      component: () => import('@/views/example/create'),
+      component: () => import('@/views/personAndAuthor/systemFunc'),
       name: 'systemFunc',
       meta: { title: 'systemFunc', icon: 'systemFunc' }
     }

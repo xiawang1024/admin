@@ -15,7 +15,7 @@ const systemStatus = {
        * 日志
        */
       path: 'logs',
-      component: () => import('@/views/example/create'),
+      component: () => import('@/views/system-status/logs'),
       name: 'logs',
       meta: { title: 'logs', icon: 'logs' }
     },
@@ -24,7 +24,7 @@ const systemStatus = {
        * 后台任务
        */
       path: 'backTask',
-      component: () => import('@/views/example/edit'),
+      component: () => import('@/views/system-status/backTask'),
       name: 'backTask',
       meta: { title: 'backTask', icon: 'backTask' }
     }
