@@ -110,7 +110,7 @@ export default {
     },
     handleAdd() {
       this.$router.push({
-        path: "/systemSet/componentForm",
+        path: "/systemSet/componentEdit",
         query: {
           isAdd: true
         }
@@ -118,7 +118,7 @@ export default {
     },
     handleAlter(index, row) {
       this.$router.push({
-        path: "/systemSet/componentForm",
+        path: "/systemSet/componentEdit",
         query: {
           isAdd: false,
           componentId: row.id

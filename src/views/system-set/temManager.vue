@@ -148,7 +148,7 @@ export default {
     },
     handleAdd() {
       this.$router.push({
-        path: "/systemSet/temForm",
+        path: "/systemSet/temEdit",
         query: {
           isAdd: true
         }
@@ -156,7 +156,7 @@ export default {
     },
     handleAlter(index, row) {
       this.$router.push({
-        path: "/systemSet/temForm",
+        path: "/systemSet/temEdit",
         query: {
           isAdd: false,
           tem: row

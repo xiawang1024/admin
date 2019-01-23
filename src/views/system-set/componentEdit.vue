@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  name: "ConponentForm",
+  name: "ConponentEdit",
   data() {
     return {
       options: [],

@@ -88,7 +88,7 @@
 
 <script>
 export default {
-  name: "TemForm",
+  name: "TemEdit",
   data() {
     return {
       options: [

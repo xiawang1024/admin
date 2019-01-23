@@ -53,10 +53,10 @@ const systemSet = {
       /**
        * 模板添加与修改
        */
-      path: 'temForm',
-      component: () => import('@/views/system-set/temForm'),
-      name: 'temForm',
-      meta: { title: 'temForm', icon: 'temForm' },
+      path: 'temEdit',
+      component: () => import('@/views/system-set/temEdit'),
+      name: 'temEdit',
+      meta: { title: 'temEdit', icon: 'temEdit' },
       hidden:true
     },
     {
@@ -81,10 +81,10 @@ const systemSet = {
       /**
        * 公共组件添加与修改
        */
-      path: 'componentForm',
-      component: () => import('@/views/system-set/ComponentForm'),
-      name: 'componentForm',
-      meta: { title: 'componentForm', icon: 'componentForm' },
+      path: 'componentEdit',
+      component: () => import('@/views/system-set/ComponentEdit'),
+      name: 'componentEdit',
+      meta: { title: 'componentEdit', icon: 'componentEdit' },
       hidden:true
     },
     {
@@ -95,7 +95,17 @@ const systemSet = {
       component: () => import('@/views/system-set/helpDoc'),
       name: 'helpDoc',
       meta: { title: 'helpDoc', icon: 'helpDoc' }
-    }
+    },
+    {
+      /**
+       * 帮助文档添加与修改
+       */
+      path: 'helpDocEdit',
+      component: () => import('@/views/system-set/helpDocEdit'),
+      name: 'helpDocEdit',
+      meta: { title: 'helpDocEdit', icon: 'helpDocEdit' },
+      hidden:true
+    },
   ]
 }
 
