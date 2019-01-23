@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="doc-list">
     <el-table
       ref="multipleTable"
-      :data="tableData3"
+      :data="tableData"
       :default-sort="{prop: 'publishTime', order: 'descending'}"
+      :highlight-current-row="true"
       tooltip-effect="dark"
       style="width: 100%"
       size="small"
-      highlight-current-row="true"
       @selection-change="handleSelectionChange"
     >
       <el-table-column
@@ -15,26 +15,45 @@
         width="55"
       />
       <el-table-column
+        fixed
         prop="id"
         label="ID/序号"
         width="100"
       />
       <el-table-column
+        fixed
         prop="title"
         label="标题"
         min-width="160"
         show-overflow-tooltip
       />
       <el-table-column
-        prop=""
         label="查看"
         width="60"
-      />
+      >
+        <template slot-scope="scope">
+          <i
+            class="el-icon-view"
+            style="cursor:pointer"
+            @click="openWindow(scope.row.outLink)"
+          />
+
+        </template>
+      </el-table-column>
+
       <el-table-column
-        prop="preview"
         label="预览"
         width="60"
-      />
+      >
+        <template slot-scope="scope">
+          <i
+            class="el-icon-view"
+            style="cursor:pointer"
+            @click="openWindow(scope.row.preview)"
+          />
+
+        </template>
+      </el-table-column>
       <el-table-column
         prop="docType"
         label="类型"
@@ -67,55 +86,47 @@
       <el-table-column
         prop="editor"
         label="撰稿人"
-        width="120"
+        width="100"
       />
       <el-table-column
         prop="click"
         label="点击"
         sortable
-        width="100"
+        width="80"
       />
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="100"
+      >
+        <template slot-scope="scope">
+
+          <el-button
+            type="text"
+            size="small"
+          >编辑</el-button>
+          <el-button
+            type="text"
+            size="small"
+            @click="handleClickDel(scope.row.id)"
+          >删除</el-button>
+        </template>
+      </el-table-column>
 
     </el-table>
     <div style="margin-top: 20px">
-      <el-button @click="toggleSelection([tableData3[1], tableData3[2]])">切换第二、第三行的选中状态</el-button>
+      <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
       <el-button @click="toggleSelection()">取消选择</el-button>
     </div>
   </div>
 </template>
 
 <script>
+import { DocList } from './mockData.js'
 export default {
   data() {
     return {
-      tableData3: [
-        {
-          id: '1506/1506',
-          title: '2019年-2020年度中原福塔户外广告牌招标公告',
-          outLink: 'http://www.hndt.com',
-          preview: '',
-          docType: '图文',
-          status: '已发布',
-          mark: '标记',
-          createTime: '2018-12-13 16:15',
-          publishTime: '2018-12-13 16:18',
-          editor: '谢飞',
-          click: '123'
-        },
-        {
-          id: '1507/1507',
-          title: '2019年-2020年度中原福塔户外广告牌招标公告',
-          outLink: 'http://www.hndt.com',
-          preview: '',
-          docType: '图文',
-          status: '已发布',
-          mark: '标记',
-          createTime: '2018-12-14 16:15',
-          publishTime: '2018-12-14 16:18',
-          editor: '谢飞',
-          click: '124'
-        }
-      ],
+      tableData: DocList,
       multipleSelection: []
     }
   },
@@ -130,9 +141,46 @@ export default {
         this.$refs.multipleTable.clearSelection()
       }
     },
+    /**
+     * 多选钩子
+     */
     handleSelectionChange(val) {
       this.multipleSelection = val
+    },
+    /**
+     * 获取多选的id列表
+     */
+    getMultipleSelectionId() {
+      const multipleSelection = this.multipleSelection
+      const len = multipleSelection.length
+      let multipleId = []
+      if (len) {
+        multipleId = multipleSelection.map(item => item.id)
+      }
+      return multipleId
+    },
+    /**
+     * 删除单个
+     */
+    handleClickDel(id) {
+      console.log('------------------------------------')
+      console.log(id)
+      console.log('------------------------------------')
+    },
+    /**
+     * 查看预览
+     */
+    openWindow(link) {
+      window.location.href = link
     }
   }
 }
 </script>
+<style lang="scss" scoped>
+.doc-list {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+</style>
+

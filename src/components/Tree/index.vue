@@ -59,6 +59,7 @@ export default {
       console.log(object, node, element)
       this.menuVisible = false
       this.webSitTags = []
+
       this.generateTags(node, 'left')
     },
     // TODO:右键点击
@@ -105,6 +106,7 @@ export default {
         /**
          * 操作清空
          */
+
         const direct = this.direct
         if (direct === 'left') {
           this.$store.dispatch('setContextMenu', {
