@@ -26,7 +26,7 @@
             style="height:100%;"
           >
             <WebComponents :component-type="contextMenu.id" />
-            {{ contextMenu }}
+
           </el-scrollbar>
         </div>
       </template>

@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <component :is="currentComponent"/>
+    <component :is="currentComponent" />
   </transition>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
   props: {
     componentType: {
       type: String,
-      default: '1'
+      default: '0'
     }
   },
   data() {
@@ -41,8 +41,9 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

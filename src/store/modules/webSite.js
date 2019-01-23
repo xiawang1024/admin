@@ -5,7 +5,9 @@ const webSite = {
       type: '1'
     },
     tags: [],
-    contextMenu: {}
+    contextMenu: {
+      id: '0'
+    }
   },
   mutations: {
     SET_VIEW_TYPE: (state, type) => {

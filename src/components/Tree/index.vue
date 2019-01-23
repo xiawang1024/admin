@@ -26,6 +26,8 @@
 
 <script>
 import ContextMenu from '@/components/ContextMenu/index.vue'
+
+import TreeData from './mockData.js'
 export default {
   name: 'WebTree',
   components: {
@@ -38,55 +40,7 @@ export default {
       menuVisible: false,
       menuLeft: '0px',
       menuTop: '0px',
-      treeData: [
-        {
-          id: 1,
-          label: '一级 1',
-          children: [
-            {
-              id: 2,
-              label: '二级 1-1',
-              children: [
-                {
-                  id: 3,
-                  label: '三级 1-1-1',
-                  children: [
-                    {
-                      label: '四级 1-1-1-1'
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          id: 4,
-          label: '一级 2',
-          children: [
-            {
-              id: 5,
-              label: '二级 2-1',
-              children: [
-                {
-                  id: 6,
-                  label: '三级 2-1-1'
-                }
-              ]
-            },
-            {
-              id: 7,
-              label: '二级 2-2',
-              children: [
-                {
-                  id: 8,
-                  label: '三级 2-2-1'
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      treeData: TreeData,
       objectID: null,
       defaultProps: {
         children: 'children',
@@ -105,7 +59,7 @@ export default {
       console.log(object, node, element)
       this.menuVisible = false
       this.webSitTags = []
-      this.generateTags(node)
+      this.generateTags(node, 'left')
     },
     // TODO:右键点击
     handleNodeContextmenu(event, object, node, element) {
@@ -114,7 +68,7 @@ export default {
         if (this.objectID !== object.id) {
           this.objectID = object.id
           this.menuVisible = true
-          this.generateTags(node)
+          this.generateTags(node, 'right')
         } else {
           this.menuVisible = !this.menuVisible
         }
@@ -134,7 +88,8 @@ export default {
     /**
      * 生成treeTag
      */
-    generateTags(node) {
+    generateTags(node, direct) {
+      this.direct = direct
       this.webSitTags = []
       this.findParentNode(node)
     },
@@ -147,7 +102,21 @@ export default {
         this.webSitTags.push(nodeVal)
       } else {
         const webSiteTags = this.webSitTags
-
+        /**
+         * 操作清空
+         */
+        const direct = this.direct
+        if (direct === 'left') {
+          this.$store.dispatch('setContextMenu', {
+            id: '0',
+            label: ''
+          })
+        } else {
+          this.$store.dispatch('setContextMenu', {})
+        }
+        /**
+         * tree 路径
+         */
         this.$store.dispatch('setTreeTags', webSiteTags)
       }
     }
