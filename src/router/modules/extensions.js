@@ -15,7 +15,7 @@ const extensions = {
        * CDN 刷新
        */
       path: 'cdnFresh',
-      component: () => import('@/views/example/create'),
+      component: () => import('@/views/extensions/cdnFresh'),
       name: 'cdnFresh',
       meta: { title: 'cdnFresh', icon: 'cdnFresh' }
     },
@@ -24,7 +24,7 @@ const extensions = {
        * 扩展字段
        */
       path: 'extendField',
-      component: () => import('@/views/example/list'),
+      component: () => import('@/views/extensions/extendField'),
       name: 'extendField',
       meta: { title: 'extendField', icon: 'extendField' }
     },
@@ -33,7 +33,7 @@ const extensions = {
        * 综合统计
        */
       path: 'statistics',
-      component: () => import('@/views/example/list'),
+      component: () => import('@/views/extensions/statistics'),
       name: 'statistics',
       meta: { title: 'statistics', icon: 'statistics' }
     },
@@ -42,7 +42,7 @@ const extensions = {
        * 采集源配置
        */
       path: 'acqSource',
-      component: () => import('@/views/example/list'),
+      component: () => import('@/views/extensions/acqSource'),
       name: 'acqSource',
       meta: { title: 'acqSource', icon: 'acqSource' }
     }

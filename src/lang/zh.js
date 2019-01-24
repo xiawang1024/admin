@@ -69,16 +69,21 @@ export default {
     docSource: '文稿来源',
     platformSet: '发布平台设置',
     temManager: '模板管理',
+    temEdit: '模板新增或修改',
     sourceManage: '资源文件管理',
     comComponent: '公用组件管理',
+    componentEdit: '公用组件新增或修改',
     helpDoc: '帮助文档管理',
     systemStatus: '系统状态',
     logs: '日志',
     backTask: '后台任务',
     personAndAuthor: '人员和权限',
     permissionGroup: '权限分组',
+    permissionGroupEdit: '分组新增或修改',
     character: '角色设定',
-    personRole: '分配人员角色',
+    characterEdit: '角色新增或修改',
+    personRole: '人员角色',
+    personRoleDistribute: '分配人员角色',
     systemFunc: '系统功能',
     extensions: '扩展功能',
     cdnFresh: 'CDN刷新',
@@ -116,22 +121,17 @@ export default {
     switchRoles: '切换权限'
   },
   guide: {
-    description:
-      '引导页对于一些第一次进入项目的人很有用，你可以简单介绍下项目的功能。本 Demo 是基于',
+    description: '引导页对于一些第一次进入项目的人很有用，你可以简单介绍下项目的功能。本 Demo 是基于',
     button: '打开引导'
   },
   components: {
     documentation: '文档',
-    tinymceTips:
-      '富文本是管理后台一个核心的功能，但同时又是一个有很多坑的地方。在选择富文本的过程中我也走了不少的弯路，市面上常见的富文本都基本用过了，最终权衡了一下选择了Tinymce。更详细的富文本比较和介绍见',
-    dropzoneTips:
-      '由于我司业务有特殊需求，而且要传七牛 所以没用第三方，选择了自己封装。代码非常的简单，具体代码你可以在这里看到 @/components/Dropzone',
+    tinymceTips: '富文本是管理后台一个核心的功能，但同时又是一个有很多坑的地方。在选择富文本的过程中我也走了不少的弯路，市面上常见的富文本都基本用过了，最终权衡了一下选择了Tinymce。更详细的富文本比较和介绍见',
+    dropzoneTips: '由于我司业务有特殊需求，而且要传七牛 所以没用第三方，选择了自己封装。代码非常的简单，具体代码你可以在这里看到 @/components/Dropzone',
     stickyTips: '当页面滚动到预设的位置会吸附在顶部',
     backToTopTips1: '页面滚动到指定位置会在右下角出现返回顶部按钮',
-    backToTopTips2:
-      '可自定义按钮的样式、show/hide、出现的高度、返回的位置 如需文字提示，可在外部使用Element的el-tooltip元素',
-    imageUploadTips:
-      '由于我在使用时它只有vue@1版本，而且和mockjs不兼容，所以自己改造了一下，如果大家要使用的话，优先还是使用官方版本。'
+    backToTopTips2: '可自定义按钮的样式、show/hide、出现的高度、返回的位置 如需文字提示，可在外部使用Element的el-tooltip元素',
+    imageUploadTips: '由于我在使用时它只有vue@1版本，而且和mockjs不兼容，所以自己改造了一下，如果大家要使用的话，优先还是使用官方版本。'
   },
   table: {
     dynamicTips1: '固定表头, 按照表头顺序排序',
@@ -177,8 +177,7 @@ export default {
   theme: {
     change: '换肤',
     documentation: '换肤文档',
-    tips:
-      'Tips: 它区别于 navbar 上的 theme-pick, 是两种不同的换肤方法，各自有不同的应用场景，具体请参考文档。'
+    tips: 'Tips: 它区别于 navbar 上的 theme-pick, 是两种不同的换肤方法，各自有不同的应用场景，具体请参考文档。'
   },
   tagsView: {
     refresh: '刷新',
