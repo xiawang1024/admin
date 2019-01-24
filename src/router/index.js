@@ -142,7 +142,10 @@ export const constantRouterMap = [
       }
     ]
   },
-  systemSet
+  systemSet,
+  systemStatus,
+  personAndAuthor,
+  extensions
 ]
 
 export const asyncRouterMap = [
