@@ -156,7 +156,7 @@ export default {
 }
 
 .tool-bar .el-col {
-  margin-left: 10px;
+  margin-left: 20px;
   margin-bottom: 10px;
 }
 </style>

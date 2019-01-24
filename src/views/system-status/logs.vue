@@ -19,7 +19,9 @@ export default {
       activeName2: "log"
     };
   },
-  methods: {}
+  methods: {
+    handleClick() {}
+  }
 };
 </script>
 
