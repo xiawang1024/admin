@@ -18,6 +18,7 @@
             <tree />
           </el-scrollbar>
         </div>
+
       </template>
       <template slot="paneR">
         <div class="right-container">
