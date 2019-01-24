@@ -12,6 +12,7 @@
       :data="treeData"
       :props="defaultProps"
       :highlight-current="true"
+      :check-on-click-node="true"
       :filter-node-method="filterNode"
       @node-click="handleNodeClick"
       @node-contextmenu="handleNodeContextmenu"

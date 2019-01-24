@@ -11,7 +11,7 @@
 
     </el-breadcrumb>
     <span
-      v-show="contextMenu.id !== '0'"
+      v-show="contextMenu.id !== '0' && contextMenu.label "
       class="context-menu"
     >（{{ contextMenu.label }}）</span>
   </div>
