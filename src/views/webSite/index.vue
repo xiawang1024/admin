@@ -1,6 +1,6 @@
 <template>
   <div class="components-container">
-    <WebSiteTag />
+    <WebSiteTag/>
     <split-pane
       :min-percent="10"
       :max-percent="30"
@@ -11,28 +11,19 @@
     >
       <template slot="paneL">
         <div class="left-container">
-          <el-scrollbar
-            wrap-class="scrollbar-wrapper"
-            style="height:100%;"
-          >
-            <tree />
+          <el-scrollbar wrap-class="scrollbar-wrapper" style="height:100%;">
+            <tree/>
           </el-scrollbar>
         </div>
-
       </template>
       <template slot="paneR">
         <div class="right-container">
-          <el-scrollbar
-            wrap-class="scrollbar-wrapper"
-            style="height:100%;"
-          >
-            <WebComponents :component-type="contextMenu.id" />
-
+          <el-scrollbar wrap-class="scrollbar-wrapper" style="height:100%;">
+            <WebComponents :component-type="contextMenu.id"/>
           </el-scrollbar>
         </div>
       </template>
     </split-pane>
-
   </div>
 </template>
 

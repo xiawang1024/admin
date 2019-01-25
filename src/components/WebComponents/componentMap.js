@@ -32,14 +32,14 @@ export const ComponentMap = [
      * 修改栏目
      */
     type: '4',
-    ArticleList: () => import('@/views/example/list')
+    AlterColumn: () => import('./components/column/columnEdit')
   },
   {
     /**
      * 新建子栏目
      */
     type: '5',
-    ArticleList: () => import('@/views/example/list')
+    CreateColumn: () => import('./components/column/columnEdit')
   },
   {
     /**
