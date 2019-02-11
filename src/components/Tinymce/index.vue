@@ -1,20 +1,9 @@
 <template>
-  <div
-    :class="{fullscreen:fullscreen}"
-    class="tinymce-container editor-container"
-  >
-
-    <textarea
-      :id="tinymceId"
-      class="tinymce-textarea"
-    />
+  <div :class="{fullscreen:fullscreen}" class="tinymce-container editor-container">
+    <textarea :id="tinymceId" class="tinymce-textarea"/>
 
     <div class="editor-custom-btn-container">
-      <editorImage
-        color="#1890ff"
-        class="editor-upload-btn"
-        @successCBK="imageSuccessCBK"
-      />
+      <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"/>
     </div>
   </div>
 </template>
@@ -160,8 +149,7 @@ export default {
               // registry. In the next release this part hopefully won't be
               // necessary, as we are looking to handle it internally.
               var id = 'blobid' + new Date().getTime()
-              var blobCache =
-                window.tinymce.activeEditor.editorUpload.blobCache
+              var blobCache = window.tinymce.activeEditor.editorUpload.blobCache
               var base64 = reader.result.split(',')[1]
               var blobInfo = blobCache.create(id, file, base64)
               blobCache.add(blobInfo)
@@ -262,6 +250,7 @@ export default {
 .tinymce-container {
   position: relative;
   line-height: normal;
+  padding-right: 5px;
 }
 .tinymce-container >>> .mce-fullscreen {
   z-index: 10000;
@@ -282,5 +271,6 @@ export default {
 }
 .editor-upload-btn {
   display: inline-block;
+  margin-right: 10px;
 }
 </style>

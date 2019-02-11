@@ -33,7 +33,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .docs-wrap {
-  min-width: 1020px;
+  // min-width: 1020px;
   margin: 0px 10px 10px 10px;
 }
 </style>
