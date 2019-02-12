@@ -90,7 +90,7 @@
 </template>
 <script>
 import UploadBtn from '@/components/Upload/UploadBtn'
-import AccessoryData from './mockData.js'
+import { AccessoryData } from './mockData.js'
 export default {
   name: 'PicturesAndAccessories',
   components: { UploadBtn },

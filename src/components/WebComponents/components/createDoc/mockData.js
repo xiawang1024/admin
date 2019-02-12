@@ -1,4 +1,4 @@
-const AccessoryData = [{
+export const AccessoryData = [{
   imageUrl: 'http://admin.hndt.com/GEN/WORK/tmp/1253/Pn9VAx3G.jpeg?1549873949299',
   fileName: '1.jpeg',
   size: '939k',
@@ -30,7 +30,7 @@ const AccessoryData = [{
 }
 ]
 
-const TreeData = [{
+export const TreeData = [{
   id: 1,
   label: '河南广播网',
   children: [{
@@ -64,8 +64,3 @@ const TreeData = [{
   }
   ]
 }]
-
-export default {
-  AccessoryData,
-  TreeData
-}

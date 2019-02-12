@@ -17,11 +17,9 @@
         <el-input v-model="docContentForm.keyWords"/>
       </el-form-item>
       <el-form-item label="摘要">
-        <el-input v-model="docContentForm.tags"/>
+        <el-input v-model="docContentForm.abstract"/>
       </el-form-item>
-      <el-form-item label="标签">
-        <el-input v-model="docContentForm.abstract" type="textarea"/>
-      </el-form-item>
+      <el-form-item label="标签"/>
       <el-form-item label="设置">
         <el-switch v-model="docContentForm.setTop" active-color="#13ce66"/>
         <span style="margin:0 30px 0 10px">置顶</span>
@@ -46,7 +44,7 @@ export default {
         homePageTitle: '',
         reproduceLocation: '',
         docWriter: '',
-        keyWords: [],
+        keyWords: '',
         abstract: '',
         tags: [],
         setTop: false,

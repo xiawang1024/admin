@@ -33,7 +33,7 @@ export default {
         homePageTitle: '',
         docSource: '',
         docWriter: '',
-        keyWords: [],
+        keyWords: '',
         abstract: '',
         tags: [],
         setTop: false,
