@@ -16,7 +16,7 @@
           </div>
           <div>
             <i class="el-icon-info"/>
-            {{ scope.row.width }}* {{ scope.row.height }}
+            {{ scope.row.width }}*{{ scope.row.height }}
           </div>
           <div>
             <i class="el-icon-date"/>
@@ -49,11 +49,11 @@
           <UploadBtn/>
         </template>
         <template slot-scope="scope">
-          <el-button type="danger" @click="handleDelete(scope.row)">删除</el-button>
-          <el-button type="success" @click="handleSetCover(scope.row)">设为封面</el-button>
-          <el-button type="success" @click="handleSetCover(scope.row)">重新上传</el-button>
-          <el-button type="primary" icon="el-icon-arrow-up" circle/>
-          <el-button type="primary" icon="el-icon-arrow-down" circle/>
+          <el-button type="danger" style="display:block" @click="handleDelete(scope.row)">删除</el-button>
+          <el-button type="success" style="display:block" @click="handleSetCover(scope.row)">设为封面</el-button>
+          <el-button type="primary" style="display:block" @click="handleSetCover(scope.row)">重新上传</el-button>
+          <el-button icon="el-icon-arrow-up" circle/>
+          <el-button icon="el-icon-arrow-down" circle/>
         </template>
       </el-table-column>
     </el-table>

@@ -2,7 +2,7 @@
   // 主体区域
   .main-container {
     min-height: 100%;
-    transition: margin-left .28s;
+    transition: all 0.3s;
     margin-left: 180px;
     position: relative;
     .scrollbar-wrapper {
@@ -13,7 +13,7 @@
     }
   } // 侧边栏
   .sidebar-container {
-    transition: width 0.28s;
+    transition: all 0.3s;
     width: 180px !important;
     height: 100%;
     position: fixed;
@@ -24,7 +24,7 @@
     z-index: 1001;
     overflow: hidden; //reset element-ui css
     .horizontal-collapse-transition {
-      transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+      transition: all 0.3s;
     }
     .scrollbar-wrapper {
       overflow-x: hidden !important;
@@ -63,15 +63,18 @@
       margin-left: 36px;
     }
     .submenu-title-noDropdown {
+      transition: all 0.3s;
       padding-left: 10px !important;
       position: relative;
       .el-tooltip {
+        transition: all 0.3s;
         padding: 0 10px !important;
       }
     }
     .el-submenu {
       overflow: hidden;
       &>.el-submenu__title {
+        transition: all 0.3s;
         padding-left: 10px !important;
         .el-submenu__icon-arrow {
           display: none;
@@ -108,7 +111,7 @@
       margin-left: 0px;
     }
     .sidebar-container {
-      transition: transform .28s;
+      transition: transform .3s;
       width: 180px !important;
     }
     &.hideSidebar {

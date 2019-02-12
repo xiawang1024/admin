@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-import TreeData from '@/components/tree/mockData.js'
+import TreeData from './mockData.js'
 export default {
   name: 'RelatedDocuments',
   data() {
