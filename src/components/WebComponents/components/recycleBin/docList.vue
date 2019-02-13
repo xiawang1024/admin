@@ -10,23 +10,65 @@
       size="small"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55"/>
-      <el-table-column fixed prop="id" label="ID/序号" width="100"/>
-      <el-table-column fixed prop="title" label="标题" min-width="160" show-overflow-tooltip/>
-      <el-table-column label="查看" width="60">
+      <el-table-column
+        type="selection"
+        width="55"
+      />
+      <el-table-column
+        fixed
+        prop="id"
+        label="ID/序号"
+        width="100"
+      />
+      <el-table-column
+        fixed
+        prop="title"
+        label="标题"
+        min-width="160"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        label="查看"
+        width="60"
+      >
         <template slot-scope="scope">
-          <i class="el-icon-view" style="cursor:pointer" @click="openWindow(scope.row.outLink)"/>
+          <i
+            class="el-icon-view"
+            style="cursor:pointer"
+            @click="openWindow(scope.row.outLink)"
+          />
+
         </template>
       </el-table-column>
 
-      <el-table-column label="预览" width="60">
+      <el-table-column
+        label="预览"
+        width="60"
+      >
         <template slot-scope="scope">
-          <i class="el-icon-view" style="cursor:pointer" @click="openWindow(scope.row.preview)"/>
+          <i
+            class="el-icon-view"
+            style="cursor:pointer"
+            @click="openWindow(scope.row.preview)"
+          />
+
         </template>
       </el-table-column>
-      <el-table-column prop="docType" label="类型" width="100"/>
-      <el-table-column prop="status" label="状态" width="100"/>
-      <el-table-column prop="mark" label="标记" width="100"/>
+      <el-table-column
+        prop="docType"
+        label="类型"
+        width="100"
+      />
+      <el-table-column
+        prop="status"
+        label="状态"
+        width="100"
+      />
+      <el-table-column
+        prop="mark"
+        label="标记"
+        width="100"
+      />
       <el-table-column
         prop="createTime"
         label="创建时间"
@@ -41,14 +83,36 @@
         sortable
         show-overflow-tooltip
       />
-      <el-table-column prop="editor" label="撰稿人" width="100"/>
-      <el-table-column prop="click" label="点击" sortable width="80"/>
-      <el-table-column fixed="right" label="操作" width="100">
+      <el-table-column
+        prop="editor"
+        label="撰稿人"
+        width="100"
+      />
+      <el-table-column
+        prop="click"
+        label="点击"
+        sortable
+        width="80"
+      />
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="100"
+      >
         <template slot-scope="scope">
-          <el-button type="text" size="small">编辑</el-button>
-          <el-button type="text" size="small" @click="handleClickDel(scope.row.id)">删除</el-button>
+
+          <el-button
+            type="text"
+            size="small"
+          >编辑</el-button>
+          <el-button
+            type="text"
+            size="small"
+            @click="handleClickDel(scope.row.id)"
+          >删除</el-button>
         </template>
       </el-table-column>
+
     </el-table>
   </div>
 </template>

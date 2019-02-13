@@ -94,14 +94,14 @@ export const ComponentMap = [{
      * 静态网页片段
      */
   type: '13',
-  ArticleList: () => import('@/views/example/list')
+  StaticWebFragment: () => import('./components/staticWebFragment/index')
 },
 {
   /**
      * 废件箱
      */
   type: '14',
-  ArticleList: () => import('@/views/example/list')
+  RecycleBin: () => import('./components/recycleBin/index')
 }
 ]
 
