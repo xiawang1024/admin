@@ -3,7 +3,7 @@
     <transition name="fade" mode="out-in">
       <img v-show="value" ref="image" :style="{ width:width }" :src="value">
     </transition>
-    <el-alert v-if="!uploadFinish" title="暂未上传图片,请上传图片" type="warning" show-icon/>
+    <!-- <el-alert v-if="!uploadFinish" title="暂未上传图片,请上传图片" type="warning" show-icon/> -->
     <el-upload
       :http-request="imageUpload"
       :show-file-list="false"
@@ -17,7 +17,7 @@
         :disabled="uploadLoading"
         class="upload-button"
         size="small"
-        type="success"
+        type="primary"
       >{{ uploadLoading ? "图片上传中" : "上传图片" }}</el-button>
     </el-upload>
   </div>

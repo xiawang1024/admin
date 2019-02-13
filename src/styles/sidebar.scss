@@ -72,7 +72,7 @@
 
   .hideSidebar {
 
-    transition: all 3s;
+    transition: all .3s;
 
     .sidebar-container {
       width: 36px !important;
@@ -123,7 +123,7 @@
 
   .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
   .sidebar-container .el-submenu .el-menu-item {
-    transition: transform 3s;
+    transition: transform .3s;
     min-width: 180px !important;
     background-color: $subMenuBg !important;
 
@@ -149,7 +149,7 @@
 
     &.hideSidebar {
       .sidebar-container {
-        transition-duration: 3s;
+        transition-duration: .3s;
         transform: translate3d(-180px, 0, 0);
       }
     }

@@ -17,14 +17,14 @@ export const ComponentMap = [{
      * 增量发布
      */
   type: '2',
-  ArticleList: () => import('@/views/example/list')
+  IncrementalRelease: () => import('./components/incrementalRelease/index')
 },
 {
   /**
      * 发布栏目首页
      */
   type: '3',
-  ArticleList: () => import('@/views/example/list')
+  ReleaseColumn: () => import('./components/releaseColumn/index')
 },
 {
   /**
@@ -52,42 +52,42 @@ export const ComponentMap = [{
      * 栏目模板
      */
   type: '7',
-  ArticleList: () => import('@/views/example/list')
+  ColumnTemp: () => import('@/views/example/list')
 },
 {
   /**
      * 扩展字段
      */
   type: '8',
-  ArticleList: () => import('@/views/example/list')
+  ExtendsField: () => import('@/views/example/list')
 },
 {
   /**
      * 标记设置
      */
   type: '9',
-  ArticleList: () => import('@/views/example/list')
+  SignSetting: () => import('@/views/example/list')
 },
 {
   /**
      * 图片水印
      */
   type: '10',
-  ArticleList: () => import('@/views/example/list')
+  ImageWatermarking: () => import('./components/imageWatermarking/index')
 },
 {
   /**
      * 图片组
      */
   type: '11',
-  ArticleList: () => import('@/views/example/list')
+  ImageGroup: () => import('./components/imageGroup/index')
 },
 {
   /**
      * 自定义文档列表
      */
   type: '12',
-  ArticleList: () => import('@/views/example/list')
+  CustomDocList: () => import('./components/customDocList/index')
 },
 {
   /**
