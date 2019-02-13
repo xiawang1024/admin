@@ -1,12 +1,12 @@
 <template>
-  <div class="imageGroup-wrap">
+  <div class="customDocList-wrap">
     <div class="tool-bar">
-      <el-button type="primary" @click="handleAdd">新增</el-button>
+      <el-button type="primary" @click="handleAddCustomDocList">新增</el-button>
     </div>
-    <el-table :data="imageGroupList" style="width: 100%">
+    <el-table :data="customDocList" style="width: 100%">
       <el-table-column prop="name" label="名称"/>
       <el-table-column prop="desc" label="描述"/>
-      <el-table-column prop="imageNum" label="图片数量"/>
+      <el-table-column prop="docNum" label="文档数量"/>
       <el-table-column prop="author" label="创建人"/>
       <el-table-column prop="createTime" label="创建时间"/>
       <el-table-column label="操作">
@@ -17,93 +17,43 @@
       </el-table-column>
     </el-table>
     <el-dialog
-      :visible.sync="addImageGroupVisible"
+      :visible.sync="addCustomDocListVisible"
       :before-close="handleClean"
       top="8vh"
       width="70%"
-      title="收货地址"
+      title="文档列表详情"
     >
       <el-form
-        ref="imageGroupForm"
-        :model="imageGroupForm"
+        ref="customDocListForm"
+        :model="customDocListForm"
         label-width="100px"
         label-position="left"
       >
         <el-form-item label="名称">
-          <el-input v-model="imageGroupForm.name" style="max-width:300px"/>
+          <el-input v-model="customDocListForm.name" style="max-width:300px"/>
         </el-form-item>
         <el-form-item label="描述">
-          <el-input v-model="imageGroupForm.desc" style="max-width:300px"/>
+          <el-input v-model="customDocListForm.desc" style="max-width:300px"/>
         </el-form-item>
         <el-form-item label="是否禁用">
-          <el-switch v-model="imageGroupForm.disable" active-color="#13ce66"/>
+          <el-switch v-model="customDocListForm.disable" active-color="#13ce66"/>
         </el-form-item>
         <el-form-item label="标签"/>
-        <el-form-item label="图集">
-          <el-table :data="imageGroupForm.imageList" style="width: 100%">
-            <el-table-column prop="title" label="文件">
-              <template slot-scope="scope">
-                <img :src="scope.row.imageUrl" style="width:100%">
-                <span class="fileName">{{ scope.row.fileName }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column prop="belongColumn" label="信息">
-              <template slot-scope="scope">
-                <div>
-                  <i class="el-icon-document"/>
-                  {{ scope.row.size }}
-                </div>
-                <div>
-                  <i class="el-icon-info"/>
-                  {{ scope.row.width }}*{{ scope.row.height }}
-                </div>
-                <div>
-                  <i class="el-icon-date"/>
-                  {{ scope.row.uploadTime }}
-                </div>
-                <el-input v-model="scope.row.location"/>
-              </template>
-            </el-table-column>
-            <el-table-column prop="releaseTime" label="自定义数据">
-              <template slot-scope="scope">
-                <el-input v-model="scope.row.f1">
-                  <template slot="prepend">F1=</template>
-                </el-input>
-                <el-input v-model="scope.row.f2">
-                  <template slot="prepend">F2=</template>
-                </el-input>
-                <el-input v-model="scope.row.f3">
-                  <template slot="prepend">F3=</template>
-                </el-input>
-              </template>
-            </el-table-column>
-            <el-table-column prop="author" label="标题与描述">
-              <template slot-scope="scope">
-                <el-input v-model="scope.row.title" placeholder="标题"/>
-                <el-input v-model="scope.row.desc" type="textarea" placeholder="描述..."/>
-              </template>
-            </el-table-column>
-            <el-table-column prop="redirectLocation" label="跳转地址">
-              <template slot-scope="scope">
-                <el-input v-model="scope.row.redirectLocation" type="textarea" placeholder="跳转地址"/>
-              </template>
-            </el-table-column>
+        <el-form-item label="列表">
+          <el-table :data="customDocListForm.imageList" style="width: 100%">
+            <el-table-column prop="title" label="标题"/>
+            <el-table-column prop="type" label="类型"/>
+            <el-table-column prop="belongColumn" label="所属栏目"/>
+            <el-table-column prop="sign" label="标记"/>
+            <el-table-column prop="author" label="发稿人"/>
+            <el-table-column prop="createTime" label="发布时间"/>
+            <el-table-column prop="clickNum" label="点击"/>
             <el-table-column>
               <template slot="header" slot-scope="scope">
-                <Upload/>
+                <el-button type="text" @click="handleAddDoc(scope.row)">添加</el-button>
               </template>
               <template slot-scope="scope">
-                <el-button type="danger" style="display:block" @click="handleDelete(scope.row)">删除</el-button>
-                <el-button
-                  type="success"
-                  style="display:block"
-                  @click="handleSetCover(scope.row)"
-                >设为封面</el-button>
-                <el-button
-                  type="primary"
-                  style="display:block"
-                  @click="handleSetCover(scope.row)"
-                >重新上传</el-button>
+                <el-button type="text" style="color:#f56c6c" @click="handleDelete(scope.row)">删除</el-button>
                 <el-button icon="el-icon-arrow-up" circle/>
                 <el-button icon="el-icon-arrow-down" circle/>
               </template>
@@ -111,24 +61,50 @@
           </el-table>
         </el-form-item>
       </el-form>
+      <el-dialog :visible.sync="addCustomDocVisible" title="选择文章" append-to-body>
+        <el-row :gutter="10">
+          <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+            <el-tree
+              ref="websitTree"
+              :data="treeData"
+              :highlight-current="true"
+              :check-on-click-node="true"
+              @node-click="handleNodeClick"
+            />
+          </el-col>
+          <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
+            <el-table :data="tableData" style="width: 100%">
+              <el-table-column type="selection" width="55"/>
+              <el-table-column prop="title" label="标题"/>
+              <el-table-column prop="belongColumn" label="所属栏目"/>
+              <el-table-column prop="releaseTime" label="发布时间"/>
+              <el-table-column prop="author" label="发布时间"/>
+            </el-table>
+          </el-col>
+        </el-row>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="addCustomDocVisible = false">取 消</el-button>
+          <el-button type="primary" @click="addCustomDocVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="addImageGroupVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addImageGroupVisible = false">保 存</el-button>
+        <el-button @click="addCustomDocListVisible = false">取 消</el-button>
+        <el-button type="primary" @click="addCustomDocListVisible = false">保 存</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 <script>
-import Upload from '@/components/Upload/UploadBtn'
-import { imageGroupList } from './mockData.js'
+import { CustomDocList, TreeData } from './mockData.js'
 export default {
-  name: 'ImageGroup',
-  components: { Upload },
+  name: 'CustomDocList',
   data() {
     return {
-      addImageGroupVisible: false,
-      imageGroupList: imageGroupList,
-      imageGroupForm: {
+      addCustomDocListVisible: false,
+      addCustomDocVisible: false,
+      customDocList: CustomDocList,
+      TreeData: TreeData,
+      customDocListForm: {
         id: '',
         name: '',
         desc: '',
@@ -139,8 +115,8 @@ export default {
     }
   },
   methods: {
-    handleAdd() {
-      this.imageGroupForm = {
+    handleAddCustomDocList() {
+      this.customDocListForm = {
         id: '',
         name: '',
         desc: '',
@@ -148,14 +124,17 @@ export default {
         tag: '',
         imageList: []
       }
-      this.addImageGroupVisible = true
+      this.addCustomDocListVisible = true
+    },
+    handleAddDoc() {
+      this.addCustomDocVisible = true
     },
     handleEdit(row) {
-      this.imageGroupForm.imageList = row.imageList
-      this.addImageGroupVisible = true
+      this.customDocListForm.imageList = row.imageList
+      this.addCustomDocListVisible = true
     },
     handleClean() {
-      this.addImageGroupVisible = false
+      this.addCustomDocListVisible = false
     },
     handleSave() {},
     handleDelete() {}
@@ -166,7 +145,7 @@ export default {
 .el-button + .el-button {
   margin: 5px 0px;
 }
-.imageGroup-wrap {
+.customDocList-wrap {
   margin: 0 5px;
 }
 .tool-bar {

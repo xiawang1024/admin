@@ -119,7 +119,7 @@
   </div>
 </template>
 <script>
-import Upload from '@/components/Upload/UploadBtn'
+import Upload from '@/components/upload/uploadBtn'
 import { imageGroupList } from './mockData.js'
 export default {
   name: 'ImageGroup',

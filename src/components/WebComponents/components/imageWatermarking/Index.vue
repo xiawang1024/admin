@@ -87,7 +87,7 @@
   </div>
 </template>
 <script>
-import Upload from '@/components/Upload/Upload'
+import Upload from '@/components/upload/upload'
 export default {
   name: 'ImageWatermarking',
   components: { Upload },

@@ -124,7 +124,7 @@
 </template>
 
 <script>
-const Upload = _ => import('@/components/upload/Upload')
+const Upload = _ => import('@/components/upload/upload')
 export default {
   name: 'BasicInformation',
   components: { Upload },
