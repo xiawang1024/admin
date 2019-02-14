@@ -1,8 +1,17 @@
 <template>
   <div class="column-templet-container">
-    <el-form :model="columnTempletForm" label-position="top">
+    <el-form
+      :model="columnTempletForm"
+      label-position="top"
+    >
       <el-row :gutter="30">
-        <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10">
+        <el-col
+          :xs="24"
+          :sm="10"
+          :md="10"
+          :lg="10"
+          :xl="10"
+        >
           <el-form-item label="选择的模板列表">
             <el-card class="templet-card">
               <div
@@ -11,36 +20,73 @@
                 class="templet-box"
               >
                 <span class="templet-lable">{{ templet.lable }}</span>
-                <el-button type="danger" style="float:right" icon="el-icon-delete" circle/>
+                <el-button
+                  size="small"
+                  type="danger"
+                  style="float:right"
+                  icon="el-icon-delete"
+                  circle
+                />
                 <div class="templet-desc">{{ templet.desc }}</div>
               </div>
             </el-card>
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="14" :md="14" :lg="14" :xl="14">
+        <el-col
+          :xs="24"
+          :sm="14"
+          :md="14"
+          :lg="14"
+          :xl="14"
+        >
           <el-form-item label="可用模板列表">
             <div style="text-align:center">
-              <el-radio-group v-model="leval">
+              <el-radio-group
+                v-model="leval"
+                size="small"
+              >
                 <el-radio-button label="1">此栏目</el-radio-button>
                 <el-radio-button label="2">父栏目</el-radio-button>
                 <el-radio-button label="3">全局</el-radio-button>
               </el-radio-group>
             </div>
-            <el-table :data="templetList" style="width: 100%">
-              <el-table-column prop="lable" label="标题"/>
-              <el-table-column prop="type" label="提交人"/>
-              <el-table-column prop="belongColumn" label="规划时间"/>
-              <el-table-column prop="createTime" label="开始执行时间"/>
+            <el-table
+              :data="templetList"
+              size="mini"
+              style="width: 100%"
+            >
+              <el-table-column
+                prop="lable"
+                label="标题"
+              />
+              <el-table-column
+                prop="type"
+                label="提交人"
+              />
+              <el-table-column
+                prop="belongColumn"
+                label="规划时间"
+              />
+              <el-table-column
+                prop="createTime"
+                label="开始执行时间"
+              />
               <el-table-column label="操作">
                 <template slot-scope="scope">
-                  <el-button type="text" @click="handleAdd(scope.$index, scope.row)">添加</el-button>
+                  <el-button
+                    type="text"
+                    @click="handleAdd(scope.$index, scope.row)"
+                  >添加</el-button>
                 </template>
               </el-table-column>
             </el-table>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-button type="warning">保存</el-button>
+      <el-button
+        size="small"
+        type="warning"
+      >保存</el-button>
     </el-form>
   </div>
 </template>

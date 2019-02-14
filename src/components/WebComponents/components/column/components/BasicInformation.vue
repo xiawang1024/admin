@@ -2,14 +2,33 @@
   <div class="basic-information-container">
     <el-form :model="basicInformation">
       <el-row :gutter="30">
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="父级栏目:">
-            <el-input v-model="basicInformation.parentColumn" style="width:auto" disabled/>
+            <el-input
+              v-model="basicInformation.parentColumn"
+              style="width:auto"
+              disabled
+            />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="前一栏目:">
-            <el-select v-model="basicInformation.preColumn" placeholder="请选择前一栏目">
+            <el-select
+              v-model="basicInformation.preColumn"
+              placeholder="请选择前一栏目"
+            >
               <el-option
                 v-for="preColumn in preColumnList"
                 :key="preColumn.id"
@@ -19,24 +38,62 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="访问域名:">
-            <el-input v-model="basicInformation.domain" style="width:auto"/>
+            <el-input
+              v-model="basicInformation.domain"
+              style="width:auto"
+            />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="存放位置:">
-            <el-input v-model="basicInformation.location" class="location" style="width:auto">
-              <span slot="prefix" style="font-size:10px;user-select:none">目录:</span>
+            <el-input
+              v-model="basicInformation.location"
+              class="location"
+              style="width:auto"
+            >
+              <span
+                slot="prefix"
+                style="font-size:10px;user-select:none"
+              >目录:</span>
             </el-input>
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="创建人员:">
-            <el-input v-model="basicInformation.creator" style="width:auto" disabled/>
+            <el-input
+              v-model="basicInformation.creator"
+              style="width:auto"
+              disabled
+            />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="正常显示:">
             <el-switch
               v-model="basicInformation.display"
@@ -46,7 +103,13 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="其他数据:">
             <el-input
               :rows="3"
@@ -56,19 +119,46 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="管理人员:">
-            <el-input v-model="basicInformation.manager" style="width:auto"/>
+            <el-input
+              v-model="basicInformation.manager"
+              style="width:auto"
+            />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="栏目名称:">
-            <el-input v-model="basicInformation.name" style="width:auto"/>
+            <el-input
+              v-model="basicInformation.name"
+              style="width:auto"
+            />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="栏目类型:">
-            <el-select v-model="basicInformation.type" placeholder="请选择栏目类型">
+            <el-select
+              v-model="basicInformation.type"
+              placeholder="请选择栏目类型"
+            >
               <el-option
                 v-for="type in typeList"
                 :key="type.id"
@@ -76,12 +166,21 @@
                 :value="type.id"
               />
             </el-select>
-            <el-input v-model="basicInformation.type" style="width:auto"/>
+            <el-input
+              v-model="basicInformation.type"
+              style="width:auto"
+            />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="栏目图标:">
-            <upload/>
+            <upload />
             <el-checkbox v-model="basicInformation.icon.isScale">是否缩放</el-checkbox>
             <el-input
               v-if="basicInformation.icon.isScale"
@@ -97,7 +196,13 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="关键字:">
             <el-input
               :rows="3"
@@ -107,7 +212,13 @@
             />
           </el-form-item>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="12"
+          :xl="12"
+        >
           <el-form-item label="栏目描述:">
             <el-input
               :rows="3"
@@ -118,7 +229,10 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-button type="warning">保存</el-button>
+      <el-button
+        size="small"
+        type="warning"
+      >保存</el-button>
     </el-form>
   </div>
 </template>

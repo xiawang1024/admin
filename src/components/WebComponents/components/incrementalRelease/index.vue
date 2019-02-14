@@ -1,23 +1,77 @@
 <template>
   <div class="incrementalRelease-wrap">
     <div class="tool-bar">
-      <el-button type="primary" @click="handleRelease">发布{{ chooseNum }}条文稿</el-button>
-      <el-button @click="handleBackAndClose">返回关闭</el-button>
+      <el-button
+        size="mini"
+        type="primary"
+        @click="handleRelease"
+      >发布{{ chooseNum }}条文稿</el-button>
+      <el-button
+        size="mini"
+        @click="handleBackAndClose"
+      >返回关闭</el-button>
     </div>
     <el-row>
-      <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
-        <el-select v-model="hasChildren" clearable placeholder="是否包含子栏目" @change="search">
-          <el-option label="包含子栏目" value="1"/>
-          <el-option label="不包含子栏目" value="0"/>
+      <el-col
+        :xs="12"
+        :sm="12"
+        :md="8"
+        :lg="4"
+        :xl="4"
+      >
+        <el-select
+          v-model="hasChildren"
+          size="mini"
+          clearable
+          placeholder="是否包含子栏目"
+          @change="search"
+        >
+          <el-option
+            label="包含子栏目"
+            value="1"
+          />
+          <el-option
+            label="不包含子栏目"
+            value="0"
+          />
         </el-select>
       </el-col>
-      <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
-        <el-select v-model="chooseType" clearable placeholder="请选择文章类型" @change="search">
-          <el-option v-for="type in typeList" :key="type.id" :label="type.label" :value="type.id"/>
+      <el-col
+        :xs="12"
+        :sm="12"
+        :md="8"
+        :lg="4"
+        :xl="4"
+      >
+        <el-select
+          v-model="chooseType"
+          size="mini"
+          clearable
+          placeholder="请选择文章类型"
+          @change="search"
+        >
+          <el-option
+            v-for="type in typeList"
+            :key="type.id"
+            :label="type.label"
+            :value="type.id"
+          />
         </el-select>
       </el-col>
-      <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
-        <el-select v-model="chooseStatus" clearable placeholder="请选择文章状态" @change="search">
+      <el-col
+        :xs="12"
+        :sm="12"
+        :md="8"
+        :lg="4"
+        :xl="4"
+      >
+        <el-select
+          v-model="chooseStatus"
+          size="mini"
+          clearable
+          placeholder="请选择文章状态"
+          @change="search"
+        >
           <el-option
             v-for="status in statusList"
             :key="status.id"
@@ -26,9 +80,16 @@
           />
         </el-select>
       </el-col>
-      <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
+      <el-col
+        :xs="12"
+        :sm="12"
+        :md="8"
+        :lg="4"
+        :xl="4"
+      >
         <el-input
           v-model="keyWords"
+          size="mini"
           placeholder="标题/发稿人/关键词"
           prefix-icon="el-icon-search"
           clearable
@@ -36,10 +97,17 @@
           @change="search"
         />
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
+      <el-col
+        :xs="24"
+        :sm="24"
+        :md="12"
+        :lg="8"
+        :xl="8"
+      >
         <el-date-picker
           v-model="chooseTime"
           :picker-options="pickerOptions"
+          size="mini"
           type="datetimerange"
           range-separator="至"
           start-placeholder="开始日期"
@@ -48,16 +116,47 @@
         />
       </el-col>
     </el-row>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="id" label="ID"/>
-      <el-table-column prop="title" label="标题"/>
-      <el-table-column prop="type" label="类型"/>
-      <el-table-column prop="belongProgram" label="所属栏目"/>
-      <el-table-column prop="status" label="状态"/>
-      <el-table-column prop="sign" label="标记"/>
-      <el-table-column prop="createTime" label="创建时间"/>
-      <el-table-column prop="releaseTime" label="发布时间"/>
-      <el-table-column prop="author" label="发稿人"/>
+    <el-table
+      :data="tableData"
+      size="mini"
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="id"
+        label="ID"
+      />
+      <el-table-column
+        prop="title"
+        label="标题"
+      />
+      <el-table-column
+        prop="type"
+        label="类型"
+      />
+      <el-table-column
+        prop="belongProgram"
+        label="所属栏目"
+      />
+      <el-table-column
+        prop="status"
+        label="状态"
+      />
+      <el-table-column
+        prop="sign"
+        label="标记"
+      />
+      <el-table-column
+        prop="createTime"
+        label="创建时间"
+      />
+      <el-table-column
+        prop="releaseTime"
+        label="发布时间"
+      />
+      <el-table-column
+        prop="author"
+        label="发稿人"
+      />
     </el-table>
 
     <el-pagination

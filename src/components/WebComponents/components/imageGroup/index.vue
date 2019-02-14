@@ -1,18 +1,48 @@
 <template>
   <div class="imageGroup-wrap">
     <div class="tool-bar">
-      <el-button type="primary" @click="handleAdd">新增</el-button>
+      <el-button
+        size="small"
+        type="primary"
+        @click="handleAdd"
+      >新增</el-button>
     </div>
-    <el-table :data="imageGroupList" style="width: 100%">
-      <el-table-column prop="name" label="名称"/>
-      <el-table-column prop="desc" label="描述"/>
-      <el-table-column prop="imageNum" label="图片数量"/>
-      <el-table-column prop="author" label="创建人"/>
-      <el-table-column prop="createTime" label="创建时间"/>
+    <el-table
+      :data="imageGroupList"
+      size="mini"
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="name"
+        label="名称"
+      />
+      <el-table-column
+        prop="desc"
+        label="描述"
+      />
+      <el-table-column
+        prop="imageNum"
+        label="图片数量"
+      />
+      <el-table-column
+        prop="author"
+        label="创建人"
+      />
+      <el-table-column
+        prop="createTime"
+        label="创建时间"
+      />
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button @click="handleEdit(scope.row)">编辑</el-button>
-          <el-button type="danger" @click="handleDelete(scope.row)">删除</el-button>
+          <el-button
+            size="mini"
+            @click="handleEdit(scope.row)"
+          >编辑</el-button>
+          <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.row)"
+          >删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -30,41 +60,65 @@
         label-position="left"
       >
         <el-form-item label="名称">
-          <el-input v-model="imageGroupForm.name" style="max-width:300px"/>
+          <el-input
+            v-model="imageGroupForm.name"
+            style="max-width:300px"
+          />
         </el-form-item>
         <el-form-item label="描述">
-          <el-input v-model="imageGroupForm.desc" style="max-width:300px"/>
+          <el-input
+            v-model="imageGroupForm.desc"
+            style="max-width:300px"
+          />
         </el-form-item>
         <el-form-item label="是否禁用">
-          <el-switch v-model="imageGroupForm.disable" active-color="#13ce66"/>
+          <el-switch
+            v-model="imageGroupForm.disable"
+            active-color="#13ce66"
+          />
         </el-form-item>
-        <el-form-item label="标签"/>
+        <el-form-item label="标签" />
         <el-form-item label="图集">
-          <el-table :data="imageGroupForm.imageList" style="width: 100%">
-            <el-table-column prop="title" label="文件">
+          <el-table
+            :data="imageGroupForm.imageList"
+            style="width: 100%"
+          >
+            <el-table-column
+              prop="title"
+              label="文件"
+            >
               <template slot-scope="scope">
-                <img :src="scope.row.imageUrl" style="width:100%">
+                <img
+                  :src="scope.row.imageUrl"
+                  style="width:100%"
+                >
                 <span class="fileName">{{ scope.row.fileName }}</span>
               </template>
             </el-table-column>
-            <el-table-column prop="belongColumn" label="信息">
+            <el-table-column
+              prop="belongColumn"
+              label="信息"
+            >
               <template slot-scope="scope">
                 <div>
-                  <i class="el-icon-document"/>
+                  <i class="el-icon-document" />
                   {{ scope.row.size }}
                 </div>
                 <div>
-                  <i class="el-icon-info"/>
+                  <i class="el-icon-info" />
                   {{ scope.row.width }}*{{ scope.row.height }}
                 </div>
                 <div>
-                  <i class="el-icon-date"/>
+                  <i class="el-icon-date" />
                   {{ scope.row.uploadTime }}
                 </div>
-                <el-input v-model="scope.row.location"/>
+                <el-input v-model="scope.row.location" />
               </template>
             </el-table-column>
-            <el-table-column prop="releaseTime" label="自定义数据">
+            <el-table-column
+              prop="releaseTime"
+              label="自定义数据"
+            >
               <template slot-scope="scope">
                 <el-input v-model="scope.row.f1">
                   <template slot="prepend">F1=</template>
@@ -77,23 +131,47 @@
                 </el-input>
               </template>
             </el-table-column>
-            <el-table-column prop="author" label="标题与描述">
+            <el-table-column
+              prop="author"
+              label="标题与描述"
+            >
               <template slot-scope="scope">
-                <el-input v-model="scope.row.title" placeholder="标题"/>
-                <el-input v-model="scope.row.desc" type="textarea" placeholder="描述..."/>
+                <el-input
+                  v-model="scope.row.title"
+                  placeholder="标题"
+                />
+                <el-input
+                  v-model="scope.row.desc"
+                  type="textarea"
+                  placeholder="描述..."
+                />
               </template>
             </el-table-column>
-            <el-table-column prop="redirectLocation" label="跳转地址">
+            <el-table-column
+              prop="redirectLocation"
+              label="跳转地址"
+            >
               <template slot-scope="scope">
-                <el-input v-model="scope.row.redirectLocation" type="textarea" placeholder="跳转地址"/>
+                <el-input
+                  v-model="scope.row.redirectLocation"
+                  type="textarea"
+                  placeholder="跳转地址"
+                />
               </template>
             </el-table-column>
             <el-table-column>
-              <template slot="header" slot-scope="scope">
-                <Upload/>
+              <template
+                slot="header"
+                slot-scope="scope"
+              >
+                <Upload />
               </template>
               <template slot-scope="scope">
-                <el-button type="danger" style="display:block" @click="handleDelete(scope.row)">删除</el-button>
+                <el-button
+                  type="danger"
+                  style="display:block"
+                  @click="handleDelete(scope.row)"
+                >删除</el-button>
                 <el-button
                   type="success"
                   style="display:block"
@@ -104,16 +182,28 @@
                   style="display:block"
                   @click="handleSetCover(scope.row)"
                 >重新上传</el-button>
-                <el-button icon="el-icon-arrow-up" circle/>
-                <el-button icon="el-icon-arrow-down" circle/>
+                <el-button
+                  icon="el-icon-arrow-up"
+                  circle
+                />
+                <el-button
+                  icon="el-icon-arrow-down"
+                  circle
+                />
               </template>
             </el-table-column>
           </el-table>
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
+      <div
+        slot="footer"
+        class="dialog-footer"
+      >
         <el-button @click="addImageGroupVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addImageGroupVisible = false">保 存</el-button>
+        <el-button
+          type="primary"
+          @click="addImageGroupVisible = false"
+        >保 存</el-button>
       </div>
     </el-dialog>
   </div>
