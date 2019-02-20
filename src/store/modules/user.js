@@ -11,6 +11,8 @@ const user = {
     avatar: '',
     introduction: '',
     roles: [],
+    sysList: [],
+    sysType: '0',
     setting: {
       articlePlatform: []
     }
@@ -43,6 +45,9 @@ const user = {
     },
     SET_SYS_LIST: (state, sysList) => {
       state.sysList = sysList
+    },
+    SET_SYS_TYPE: (state, sysType) => {
+      state.sysType = sysType
     }
   },
 
@@ -147,6 +152,11 @@ const user = {
           resolve()
         })
       })
+    },
+    selectSysType({ commit, dispatch, getters }, sysType) {
+      commit('SET_SYS_TYPE', sysType)
+
+      dispatch('GenerateRoutes', { roles: getters.roles }) // 动态修改权限后 重绘侧边菜单
     }
   }
 }

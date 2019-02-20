@@ -31,8 +31,9 @@ export default {
         ? { item: true, active: true }
         : { item: true }
     },
-    selectHandler(index) {
-      this.selectedIndex = index
+    selectHandler(sysType) {
+      this.selectedIndex = sysType
+      this.$store.dispatch('selectSysType', `${sysType}`)
     },
     filterSysList(sysList) {
       const syncSysList = sysType.filter(item => {
