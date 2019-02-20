@@ -9,6 +9,9 @@
       >
 
     </div>
+    <div class="sysType-wrap">
+      <sys-type/>
+    </div>
     <div class="right-menu">
 
       <template v-if="device!=='mobile'">
@@ -89,18 +92,17 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
+
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker'
+import SysType from './sysType.vue'
 
 export default {
   components: {
-    Breadcrumb,
-    Hamburger,
+    SysType,
     ErrorLog,
     Screenfull,
     SizeSelect,
@@ -125,24 +127,31 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 50px;
   line-height: 50px;
+  padding: 0 10px;
   border-radius: 0px !important;
   background: #0081dc;
+  box-sizing: border-box;
   .logo-wrap {
-    float: left;
+    flex: 0 0 200px;
+    width: 200px;
     padding-left: 10px;
     .logo {
       vertical-align: middle;
     }
   }
-
+  .sysType-wrap {
+    flex: 1;
+  }
   .errLog-container {
     display: inline-block;
     vertical-align: top;
   }
   .right-menu {
-    float: right;
     height: 100%;
     &:focus {
       outline: none;

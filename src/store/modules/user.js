@@ -40,6 +40,9 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_SYS_LIST: (state, sysList) => {
+      state.sysList = sysList
     }
   },
 
@@ -78,7 +81,7 @@ const user = {
             } else {
               reject('getInfo: roles must be a non-null array !')
             }
-
+            commit('SET_SYS_LIST', data.sysList)
             commit('SET_NAME', data.name)
             commit('SET_AVATAR', data.avatar)
             commit('SET_INTRODUCTION', data.introduction)

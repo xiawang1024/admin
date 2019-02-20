@@ -1,8 +1,8 @@
 import Layout from '@/views/layout/Layout'
-
+import BasePath from '../config'
 // TODO:左侧菜单 系统状态
 const systemStatus = {
-  path: '/systemStatus',
+  path: `${BasePath}/systemStatus`,
   component: Layout,
   name: 'systemStatus',
   meta: {
