@@ -1,9 +1,7 @@
 const webSite = {
   state: {
-    viewType: {
-      isShow: false,
-      type: '1'
-    },
+    viewType: '0',
+    viewTypeShow: false,
     tags: [],
     contextMenu: {
       id: '0'
@@ -11,7 +9,10 @@ const webSite = {
   },
   mutations: {
     SET_VIEW_TYPE: (state, type) => {
-      state.viewType = Object.assign(state.viewType, type)
+      state.viewType = type
+    },
+    SET_VIEW_TYPE_SHOW: (state, type) => {
+      state.viewTypeShow = type
     },
     SET_TREE_TAGS: (state, tags) => {
       state.tags = tags
@@ -23,6 +24,9 @@ const webSite = {
   actions: {
     setViewType({ commit }, type) {
       commit('SET_VIEW_TYPE', type)
+    },
+    setViewTypeShow({ commit }, type) {
+      commit('SET_VIEW_TYPE_SHOW', type)
     },
     setTreeTags({ commit }, tags) {
       commit('SET_TREE_TAGS', tags)

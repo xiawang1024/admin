@@ -13,7 +13,6 @@
 
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item" />
-        <view-type class="viewtype" />
 
         <el-tooltip
           :content="$t('navbar.screenfull')"
@@ -91,7 +90,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
-import ViewType from '@/components/ViewType'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
@@ -102,7 +100,6 @@ import ThemePicker from '@/components/ThemePicker'
 export default {
   components: {
     Breadcrumb,
-    ViewType,
     Hamburger,
     ErrorLog,
     Screenfull,

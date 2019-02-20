@@ -82,43 +82,6 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/documentation',
-    component: Layout,
-    redirect: '/documentation/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: 'documentation', icon: 'documentation', noCache: true },
-        children: [
-          {
-            path: 'index',
-            component: () => import('@/views/svg-icons/index'),
-            name: 'Icons',
-            meta: { title: 'icons', icon: 'icon', noCache: true },
-            children: [
-              {
-                path: 'index',
-                component: () => import('@/views/svg-icons/index'),
-                name: 'Icons',
-                meta: { title: 'icons', icon: 'icon', noCache: true },
-                children: [
-                  {
-                    path: 'index',
-                    component: () => import('@/views/svg-icons/index'),
-                    name: 'Icons',
-                    meta: { title: 'icons', icon: 'icon', noCache: true }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',
@@ -256,37 +219,37 @@ export const routerMap = {
 }
 
 export const serverRouterMap = [
-  {
-    path: '/example',
-    component: 'Layout',
-    redirect: '/example/list',
-    name: 'Example',
-    meta: {
-      title: 'example',
-      icon: 'example'
-    },
-    children: [
-      {
-        path: 'create',
-        component: 'CreateArticle',
-        name: 'CreateArticle',
-        meta: { title: 'createArticle', icon: 'edit' }
-      },
-      {
-        path: 'edit/:id(\\d+)',
-        component: 'EditArticle',
-        name: 'EditArticle',
-        meta: { title: 'editArticle', noCache: true },
-        hidden: true
-      },
-      {
-        path: 'list',
-        component: 'ArticleList',
-        name: 'ArticleList',
-        meta: { title: 'articleList', icon: 'list' }
-      }
-    ]
-  },
+  // {
+  //   path: '/example',
+  //   component: 'Layout',
+  //   redirect: '/example/list',
+  //   name: 'Example',
+  //   meta: {
+  //     title: 'example',
+  //     icon: 'example'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'create',
+  //       component: 'CreateArticle',
+  //       name: 'CreateArticle',
+  //       meta: { title: 'createArticle', icon: 'edit' }
+  //     },
+  //     {
+  //       path: 'edit/:id(\\d+)',
+  //       component: 'EditArticle',
+  //       name: 'EditArticle',
+  //       meta: { title: 'editArticle', noCache: true },
+  //       hidden: true
+  //     },
+  //     {
+  //       path: 'list',
+  //       component: 'ArticleList',
+  //       name: 'ArticleList',
+  //       meta: { title: 'articleList', icon: 'list' }
+  //     }
+  //   ]
+  // }
   // {
   //   path: '/extensions',
   //   component: 'Layout',
@@ -334,10 +297,10 @@ export const serverRouterMap = [
   //     }
   //   ]
   // }
-  systemSet,
-  systemStatus,
-  personAndAuthor,
-  extensions
+  // systemSet,
+  // systemStatus,
+  // personAndAuthor,
+  // extensions
 ]
 
 export default new Router({

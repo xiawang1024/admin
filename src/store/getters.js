@@ -17,6 +17,7 @@ const getters = {
   errorLogs: (state) => state.errorLog.logs,
 
   viewType: (state) => state.webSite.viewType,
+  viewTypeShow: (state) => state.webSite.viewTypeShow,
   treeTags: (state) => state.webSite.tags,
   contextMenu: (state) => state.webSite.contextMenu
 }

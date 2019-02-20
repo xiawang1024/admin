@@ -1,17 +1,19 @@
 <template>
   <el-form
-    v-show="viewType.isShow"
     ref="form"
     label-width="80px"
     class="form-wrap"
+    size="mini"
   >
     <el-form-item
+      v-show="viewTypeShow"
       label="视图："
       class="form-item"
     >
       <el-select
-        v-model="viewType"
+        :value="viewTypeList[viewType].label"
         placeholder="请选择"
+        @change="selectHandler"
       >
         <el-option
           v-for="item in viewTypeList"
@@ -26,39 +28,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { ViewConfig } from './config.js'
 export default {
   data() {
     return {
-      viewTypeList: [
-        {
-          value: '1',
-          label: '文档'
-        },
-        {
-          value: '2',
-          label: '模板'
-        },
-        {
-          value: '3',
-          label: '图片组'
-        },
-        {
-          value: '4',
-          label: '自定义列表'
-        },
-        {
-          value: '5',
-          label: 'HTML片段'
-        },
-        {
-          value: '6',
-          label: '废件箱'
-        }
-      ]
+      viewTypeList: ViewConfig
     }
   },
   computed: {
-    ...mapGetters(['viewType'])
+    ...mapGetters(['viewType', 'viewTypeShow'])
+  },
+  methods: {
+    selectHandler(type) {
+      this.$store.dispatch('setViewType', type)
+    }
   },
   beforeRouteEnter(to, form, next) {
     console.log(to)
