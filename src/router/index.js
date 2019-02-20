@@ -90,7 +90,31 @@ export const constantRouterMap = [
         path: 'index',
         component: () => import('@/views/documentation/index'),
         name: 'Documentation',
-        meta: { title: 'documentation', icon: 'documentation', noCache: true }
+        meta: { title: 'documentation', icon: 'documentation', noCache: true },
+        children: [
+          {
+            path: 'index',
+            component: () => import('@/views/svg-icons/index'),
+            name: 'Icons',
+            meta: { title: 'icons', icon: 'icon', noCache: true },
+            children: [
+              {
+                path: 'index',
+                component: () => import('@/views/svg-icons/index'),
+                name: 'Icons',
+                meta: { title: 'icons', icon: 'icon', noCache: true },
+                children: [
+                  {
+                    path: 'index',
+                    component: () => import('@/views/svg-icons/index'),
+                    name: 'Icons',
+                    meta: { title: 'icons', icon: 'icon', noCache: true }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -157,7 +181,7 @@ export const asyncRouterMap = [
     meta: {
       title: 'permission',
       icon: 'lock',
-      roles: ['admin', 'editor', 'superAdmin'] // you can set roles in root nav
+      authCode: 'admin' // nav
     },
     children: [
       {
@@ -166,7 +190,7 @@ export const asyncRouterMap = [
         name: 'PagePermission',
         meta: {
           title: 'pagePermission',
-          roles: ['admin'] // or you can only set roles in sub nav
+          authCode: '1' // or you can only set roles in sub nav
         }
       },
       {
@@ -190,7 +214,23 @@ export const asyncRouterMap = [
         path: 'index',
         component: () => import('@/views/svg-icons/index'),
         name: 'Icons',
-        meta: { title: 'icons', icon: 'icon', noCache: true }
+        meta: { title: 'icons', icon: 'icon', noCache: true },
+        children: [
+          {
+            path: 'index',
+            component: () => import('@/views/svg-icons/index'),
+            name: 'Icons',
+            meta: { title: 'icons', icon: 'icon', noCache: true },
+            children: [
+              {
+                path: 'index',
+                component: () => import('@/views/svg-icons/index'),
+                name: 'Icons',
+                meta: { title: 'icons', icon: 'icon', noCache: true }
+              }
+            ]
+          }
+        ]
       }
     ]
   },

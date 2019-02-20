@@ -49,6 +49,7 @@ export default {
 .international-icon {
   font-size: 20px;
   cursor: pointer;
+  color: #ffffff !important;
   vertical-align: -5px !important;
 }
 </style>
