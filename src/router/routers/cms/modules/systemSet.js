@@ -7,7 +7,8 @@ const systemSet = {
   name: 'systemSet',
   meta: {
     title: 'systemSet',
-    icon: 'systemSet'
+    icon: 'systemSet',
+    role: 'editor'
   },
   children: [
     {
@@ -19,7 +20,8 @@ const systemSet = {
       name: 'SiteSet',
       meta: {
         title: 'siteSet',
-        icon: 'siteSet'
+        icon: 'siteSet',
+        role: 'editor'
       }
     },
     {
@@ -29,7 +31,7 @@ const systemSet = {
       path: 'docSource',
       component: () => import('@/views/system-set/docSource'),
       name: 'DocSource',
-      meta: { title: 'docSource', icon: 'docSource' }
+      meta: { title: 'docSource', icon: 'docSource', role: 'editor' }
     },
     {
       /**
@@ -38,7 +40,7 @@ const systemSet = {
       path: 'platformSet',
       component: () => import('@/views/system-set/platformSet'),
       name: 'platformSet',
-      meta: { title: 'platformSet', icon: 'platformSet' }
+      meta: { title: 'platformSet', icon: 'platformSet', role: 'editor' }
     },
     {
       /**
@@ -47,7 +49,7 @@ const systemSet = {
       path: 'temManager',
       component: () => import('@/views/system-set/temManager'),
       name: 'temManager',
-      meta: { title: 'temManager', icon: 'temManager' }
+      meta: { title: 'temManager', icon: 'temManager', role: 'editor' }
     },
     {
       /**
@@ -56,7 +58,7 @@ const systemSet = {
       path: 'temEdit',
       component: () => import('@/views/system-set/temEdit'),
       name: 'temEdit',
-      meta: { title: 'temEdit', icon: 'temEdit' },
+      meta: { title: 'temEdit', icon: 'temEdit', role: 'editor' },
       hidden: true
     },
     {
@@ -66,7 +68,7 @@ const systemSet = {
       path: 'sourceManage',
       component: () => import('@/views/system-set/sourceManage'),
       name: 'sourceManage',
-      meta: { title: 'sourceManage', icon: 'sourceManage' }
+      meta: { title: 'sourceManage', icon: 'sourceManage', role: 'editor' }
     },
     {
       /**
@@ -75,7 +77,7 @@ const systemSet = {
       path: 'comComponent',
       component: () => import('@/views/system-set/comComponent'),
       name: 'comComponent',
-      meta: { title: 'comComponent', icon: 'comComponent' }
+      meta: { title: 'comComponent', icon: 'comComponent', role: 'editor' }
     },
     {
       /**
@@ -84,7 +86,7 @@ const systemSet = {
       path: 'componentEdit',
       component: () => import('@/views/system-set/ComponentEdit'),
       name: 'componentEdit',
-      meta: { title: 'componentEdit', icon: 'componentEdit' },
+      meta: { title: 'componentEdit', icon: 'componentEdit', role: 'editor' },
       hidden: true
     },
     {
@@ -94,7 +96,7 @@ const systemSet = {
       path: 'helpDoc',
       component: () => import('@/views/system-set/helpDoc'),
       name: 'helpDoc',
-      meta: { title: 'helpDoc', icon: 'helpDoc' }
+      meta: { title: 'helpDoc', icon: 'helpDoc', role: 'editor' }
     },
     {
       /**
@@ -103,7 +105,7 @@ const systemSet = {
       path: 'helpDocEdit',
       component: () => import('@/views/system-set/helpDocEdit'),
       name: 'helpDocEdit',
-      meta: { title: 'helpDocEdit', icon: 'helpDocEdit' },
+      meta: { title: 'helpDocEdit', icon: 'helpDocEdit', role: 'editor' },
       hidden: true
     }
   ]
