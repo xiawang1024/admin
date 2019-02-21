@@ -10,7 +10,7 @@
 
     </div>
     <div class="sysType-wrap">
-      <sys-type/>
+      <sys-type />
     </div>
     <div class="right-menu">
 
@@ -93,11 +93,11 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import ErrorLog from '@/components/ErrorLog'
-import Screenfull from '@/components/Screenfull'
-import SizeSelect from '@/components/SizeSelect'
-import LangSelect from '@/components/LangSelect'
-import ThemePicker from '@/components/ThemePicker'
+import ErrorLog from '@/components/public/ErrorLog'
+import Screenfull from '@/components/public/Screenfull'
+import SizeSelect from '@/components/public/SizeSelect'
+import LangSelect from '@/components/public/LangSelect'
+import ThemePicker from '@/components/public/ThemePicker'
 import SysType from './sysType.vue'
 
 export default {

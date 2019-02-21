@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import ContextMenu from '@/components/ContextMenu/index.vue'
+import ContextMenu from '@/components/cms/ContextMenu/index.vue'
 
 import TreeData from './mockData.js'
 export default {

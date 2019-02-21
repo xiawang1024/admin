@@ -34,10 +34,10 @@
 </template>
 
 <script>
-import WebSiteTag from '@/components/WebSiteTag'
+import WebSiteTag from '@/components/cms/WebSiteTag'
 import splitPane from 'vue-splitpane'
-import Tree from '@/components/Tree'
-import WebComponents from '@/components/WebComponents'
+import Tree from '@/components/cms/Tree'
+import WebComponents from '@/components/cms/WebComponents'
 
 import { mapGetters } from 'vuex'
 

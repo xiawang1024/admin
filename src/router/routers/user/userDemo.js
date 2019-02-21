@@ -30,7 +30,7 @@ const userDemo = {
       path: 'drag-kanban',
       component: () => import(`@/${path}/dragKanban`),
       name: 'DragKanbanDemo',
-      meta: { title: 'dragKanban', role: 'admin' }
+      meta: { title: 'dragKanban', role: 'editor' }
     }
   ]
 }
