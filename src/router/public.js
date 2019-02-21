@@ -9,28 +9,28 @@ const constantRouterMap = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index')
+        component: () => import('@/views/public/redirect/index')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
+    component: () => import('@/views/public/login/index'),
     hidden: true
   },
   {
     path: '/auth-redirect',
-    component: () => import('@/views/login/authredirect'),
+    component: () => import('@/views/public/login/authredirect'),
     hidden: true
   },
   {
     path: '/404',
-    component: () => import('@/views/errorPage/404'),
+    component: () => import('@/views/public/errorPage/404'),
     hidden: true
   },
   {
     path: '/401',
-    component: () => import('@/views/errorPage/401'),
+    component: () => import('@/views/public/errorPage/401'),
     hidden: true
   },
   {
@@ -40,7 +40,7 @@ const constantRouterMap = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/public/dashboard/index'),
         name: 'Dashboard',
         meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
       }

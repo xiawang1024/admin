@@ -1,8 +1,9 @@
 import Layout from '@/views/layout/Layout'
 import { cmsPath } from '../config'
+const path = `views/${cmsPath}/system-set`
 // TODO:左侧菜单 系统设置
 const systemSet = {
-  path: `${cmsPath}/systemSet`,
+  path: `/${cmsPath}/systemSet`,
   component: Layout,
   name: 'systemSet',
   meta: {
@@ -16,7 +17,7 @@ const systemSet = {
        * 站点设置
        */
       path: 'siteSet',
-      component: () => import('@/views/system-set/siteSet'),
+      component: () => import(`@/${path}/siteSet`),
       name: 'SiteSet',
       meta: {
         title: 'siteSet',
@@ -29,7 +30,7 @@ const systemSet = {
        * 文稿来源
        */
       path: 'docSource',
-      component: () => import('@/views/system-set/docSource'),
+      component: () => import(`@/${path}/docSource`),
       name: 'DocSource',
       meta: { title: 'docSource', icon: 'docSource', role: 'editor' }
     },
@@ -38,7 +39,7 @@ const systemSet = {
        * 发布平台设置
        */
       path: 'platformSet',
-      component: () => import('@/views/system-set/platformSet'),
+      component: () => import(`@/${path}/platformSet`),
       name: 'platformSet',
       meta: { title: 'platformSet', icon: 'platformSet', role: 'editor' }
     },
@@ -47,7 +48,7 @@ const systemSet = {
        * 模板管理
        */
       path: 'temManager',
-      component: () => import('@/views/system-set/temManager'),
+      component: () => import(`@/${path}/temManager`),
       name: 'temManager',
       meta: { title: 'temManager', icon: 'temManager', role: 'editor' }
     },
@@ -56,7 +57,7 @@ const systemSet = {
        * 模板添加与修改
        */
       path: 'temEdit',
-      component: () => import('@/views/system-set/temEdit'),
+      component: () => import(`@/${path}/temEdit`),
       name: 'temEdit',
       meta: { title: 'temEdit', icon: 'temEdit', role: 'editor' },
       hidden: true
@@ -66,7 +67,7 @@ const systemSet = {
        * 资源文件管理
        */
       path: 'sourceManage',
-      component: () => import('@/views/system-set/sourceManage'),
+      component: () => import(`@/${path}/sourceManage`),
       name: 'sourceManage',
       meta: { title: 'sourceManage', icon: 'sourceManage', role: 'editor' }
     },
@@ -75,7 +76,7 @@ const systemSet = {
        * 公用组件管理
        */
       path: 'comComponent',
-      component: () => import('@/views/system-set/comComponent'),
+      component: () => import(`@/${path}/comComponent`),
       name: 'comComponent',
       meta: { title: 'comComponent', icon: 'comComponent', role: 'editor' }
     },
@@ -84,7 +85,7 @@ const systemSet = {
        * 公共组件添加与修改
        */
       path: 'componentEdit',
-      component: () => import('@/views/system-set/ComponentEdit'),
+      component: () => import(`@/${path}/ComponentEdit`),
       name: 'componentEdit',
       meta: { title: 'componentEdit', icon: 'componentEdit', role: 'editor' },
       hidden: true
@@ -94,7 +95,7 @@ const systemSet = {
        * 帮助文档管理
        */
       path: 'helpDoc',
-      component: () => import('@/views/system-set/helpDoc'),
+      component: () => import(`@/${path}/helpDoc`),
       name: 'helpDoc',
       meta: { title: 'helpDoc', icon: 'helpDoc', role: 'editor' }
     },
@@ -103,7 +104,7 @@ const systemSet = {
        * 帮助文档添加与修改
        */
       path: 'helpDocEdit',
-      component: () => import('@/views/system-set/helpDocEdit'),
+      component: () => import(`@/${path}/helpDocEdit`),
       name: 'helpDocEdit',
       meta: { title: 'helpDocEdit', icon: 'helpDocEdit', role: 'editor' },
       hidden: true
