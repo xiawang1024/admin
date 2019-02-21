@@ -1,5 +1,5 @@
 import Layout from '@/views/layout/Layout'
-import cmsPath from '../config'
+import { cmsPath } from '../config'
 
 // TODO:左侧菜单 扩展功能
 const extensions = {
@@ -8,7 +8,8 @@ const extensions = {
   name: 'extensions',
   meta: {
     title: 'extensions',
-    icon: 'extensions'
+    icon: 'extensions',
+    role: 'editor'
   },
   children: [
     {
@@ -18,7 +19,7 @@ const extensions = {
       path: 'cdnFresh',
       component: () => import('@/views/extensions/cdnFresh'),
       name: 'cdnFresh',
-      meta: { title: 'cdnFresh', icon: 'cdnFresh' }
+      meta: { title: 'cdnFresh', icon: 'cdnFresh', role: 'editor' }
     },
     {
       /**
@@ -27,7 +28,7 @@ const extensions = {
       path: 'extendField',
       component: () => import('@/views/extensions/extendField'),
       name: 'extendField',
-      meta: { title: 'extendField', icon: 'extendField' }
+      meta: { title: 'extendField', icon: 'extendField', role: 'admin' }
     },
     {
       /**

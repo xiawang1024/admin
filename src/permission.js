@@ -16,6 +16,7 @@ function hasPermission(roles, permissionRole) {
 const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
+  console.log(to)
   NProgress.start() // start progress bar
   if (getToken()) {
     // determine if there has token
@@ -34,7 +35,6 @@ router.beforeEach((to, from, next) => {
 
             store.dispatch('GenerateRoutes', { roles }).then(() => {
               // 根据roles权限生成可访问的路由表
-              console.log(store.getters.addRouters)
               router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
               next({ ...to, replace: true }) // hack方法 确保addRoutes已完成 ,set the replace: true so the navigation will not leave a history record
             })
@@ -54,6 +54,7 @@ router.beforeEach((to, from, next) => {
           next({ path: '/401', replace: true, query: { noGoBack: true }})
         }
         // 可删 ↑
+        // next()
       }
     }
   } else {

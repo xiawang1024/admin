@@ -1,5 +1,6 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import router from '@/router'
 
 const user = {
   state: {
@@ -153,10 +154,16 @@ const user = {
         })
       })
     },
-    selectSysType({ commit, dispatch, getters }, sysType) {
+    selectSysType({ commit, dispatch, getters, state }, sysType) {
       commit('SET_SYS_TYPE', sysType)
-
-      dispatch('GenerateRoutes', { roles: getters.roles }) // 动态修改权限后 重绘侧边菜单
+      router.push({ path: '/' })
+      dispatch('delAllViews') // 清除tagViews
+      dispatch('GenerateRoutes', { roles: getters.roles }).then(() => {
+        /**
+         * 更新动态路由
+         */
+        router.addRoutes(getters.addRouters)
+      }) // 动态修改权限后 重绘侧边菜单
     }
   }
 }

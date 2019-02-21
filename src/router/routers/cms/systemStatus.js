@@ -1,5 +1,5 @@
 import Layout from '@/views/layout/Layout'
-import cmsPath from '../config'
+import { cmsPath } from '../config'
 // TODO:左侧菜单 系统状态
 const systemStatus = {
   path: `${cmsPath}/systemStatus`,

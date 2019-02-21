@@ -1,87 +1,21 @@
 import Layout from '@/views/layout/Layout'
 import { userPath } from '../config'
-const componentsRouter = {
+// TODO:左侧菜单 系统设置
+const userDemo = {
   path: `${userPath}/components`,
   component: Layout,
   redirect: 'noredirect',
   name: 'ComponentDemo',
   meta: {
     title: 'components',
-    icon: 'component',
-    role: 'editor'
+    icon: 'component'
   },
   children: [
     {
       path: 'tinymce',
       component: () => import('@/views/components-demo/tinymce'),
       name: 'TinymceDemo',
-      meta: { title: 'tinymce', role: 'editor' }
-    },
-    {
-      path: 'markdown',
-      component: () => import('@/views/components-demo/markdown'),
-      name: 'MarkdownDemo',
-      meta: { title: 'markdown', role: 'editor' }
-    },
-    {
-      path: 'json-editor',
-      component: () => import('@/views/components-demo/jsonEditor'),
-      name: 'JsonEditorDemo',
-      meta: { title: 'jsonEditor' }
-    },
-    {
-      path: 'splitpane',
-      component: () => import('@/views/components-demo/splitpane'),
-      name: 'SplitpaneDemo',
-      meta: { title: 'splitPane' }
-    },
-    {
-      path: 'avatar-upload',
-      component: () => import('@/views/components-demo/avatarUpload'),
-      name: 'AvatarUploadDemo',
-      meta: { title: 'avatarUpload' }
-    },
-    {
-      path: 'dropzone',
-      component: () => import('@/views/components-demo/dropzone'),
-      name: 'DropzoneDemo',
-      meta: { title: 'dropzone' }
-    },
-    {
-      path: 'sticky',
-      component: () => import('@/views/components-demo/sticky'),
-      name: 'StickyDemo',
-      meta: { title: 'sticky' }
-    },
-    {
-      path: 'count-to',
-      component: () => import('@/views/components-demo/countTo'),
-      name: 'CountToDemo',
-      meta: { title: 'countTo' }
-    },
-    {
-      path: 'mixin',
-      component: () => import('@/views/components-demo/mixin'),
-      name: 'ComponentMixinDemo',
-      meta: { title: 'componentMixin' }
-    },
-    {
-      path: 'back-to-top',
-      component: () => import('@/views/components-demo/backToTop'),
-      name: 'BackToTopDemo',
-      meta: { title: 'backToTop' }
-    },
-    {
-      path: 'drag-dialog',
-      component: () => import('@/views/components-demo/dragDialog'),
-      name: 'DragDialogDemo',
-      meta: { title: 'dragDialog' }
-    },
-    {
-      path: 'drag-select',
-      component: () => import('@/views/components-demo/dragSelect'),
-      name: 'DragSelectDemo',
-      meta: { title: 'dragSelect' }
+      meta: { title: 'tinymce' }
     },
     {
       path: 'dnd-list',
@@ -98,4 +32,4 @@ const componentsRouter = {
   ]
 }
 
-export default componentsRouter
+export default userDemo
