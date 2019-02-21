@@ -238,7 +238,7 @@
 </template>
 
 <script>
-const Upload = _ => import('@/components/upload/upload')
+const Upload = _ => import('@/components/cms/Upload/upload')
 export default {
   name: 'BasicInformation',
   components: { Upload },

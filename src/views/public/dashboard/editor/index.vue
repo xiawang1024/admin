@@ -29,11 +29,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import PanThumb from '@/components/public/PanThumb'
-import GithubCorner from '@/components/GithubCorner'
 
 export default {
   name: 'DashboardEditor',
-  components: { PanThumb, GithubCorner },
+  components: { PanThumb },
   data() {
     return {
       emptyGif:

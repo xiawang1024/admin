@@ -1,10 +1,17 @@
 <template>
   <div class="imageWatermarking-wrap">
     <div class="tool-bar">
-      <el-button type="warning" @click="handleSave">保存</el-button>
+      <el-button
+        type="warning"
+        @click="handleSave"
+      >保存</el-button>
     </div>
     <h3 class="title">水印设置</h3>
-    <el-form ref="watermarkingForm" :model="watermarkingForm" label-width="100px">
+    <el-form
+      ref="watermarkingForm"
+      :model="watermarkingForm"
+      label-width="100px"
+    >
       <el-form-item label="水印位置：">
         <div class="location-box">
           <el-button
@@ -55,9 +62,19 @@
         </div>
       </el-form-item>
       <el-form-item label="水印图片：">
-        <Upload v-model="watermarkingForm.chooseImageUrl" width="20%"/>
-        <el-button type="danger" size="small" @click="handleDelete">删除水印</el-button>
-        <el-switch v-model="watermarkingForm.isScale" active-text="上传后缩放"/>
+        <Upload
+          v-model="watermarkingForm.chooseImageUrl"
+          width="20%"
+        />
+        <el-button
+          type="danger"
+          size="small"
+          @click="handleDelete"
+        >删除水印</el-button>
+        <el-switch
+          v-model="watermarkingForm.isScale"
+          active-text="上传后缩放"
+        />
         <el-input
           v-if="watermarkingForm.isScale"
           v-model="watermarkingForm.width"
@@ -87,7 +104,7 @@
   </div>
 </template>
 <script>
-import Upload from '@/components/upload/upload'
+import Upload from '@/components/cms/Upload/upload'
 export default {
   name: 'ImageWatermarking',
   components: { Upload },
