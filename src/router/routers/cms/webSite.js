@@ -1,11 +1,12 @@
 import Layout from '@/views/layout/Layout'
-import BasePath from '../config'
+
+import cmsPath from '../config'
 // TODO:左侧菜单 网站
 
 const webSite = {
-  path: `${BasePath}/website`,
+  path: `${cmsPath}/website`,
   component: Layout,
-  redirect: `${BasePath}/website/doc`,
+  redirect: `${cmsPath}/website/doc`,
   meta: { title: 'webSite', icon: 'webSite' },
   children: [
     {

@@ -1,9 +1,9 @@
 import Layout from '@/views/layout/Layout'
-import BasePath from '../config'
+import cmsPath from '../config'
 
 // TODO:左侧菜单 人员和权限
 const personAndAuthor = {
-  path: `${BasePath}/personAndAuthor`,
+  path: `${cmsPath}/personAndAuthor`,
   component: Layout,
   name: 'personAndAuthor',
   meta: {

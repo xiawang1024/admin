@@ -1,6 +1,7 @@
 /* Layout */
 import Layout from '@/views/layout/Layout'
-export const constantRouterMap = [
+
+const constantRouterMap = [
   {
     path: '/redirect',
     component: Layout,
@@ -47,3 +48,4 @@ export const constantRouterMap = [
   },
   { path: '*', redirect: '/404', hidden: true }
 ]
+export default constantRouterMap

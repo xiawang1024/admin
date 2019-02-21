@@ -1,9 +1,9 @@
 import Layout from '@/views/layout/Layout'
-import BasePath from '../config'
+import cmsPath from '../config'
 
 // TODO:左侧菜单 扩展功能
 const extensions = {
-  path: `${BasePath}/extensions`,
+  path: `${cmsPath}/extensions`,
   component: Layout,
   name: 'extensions',
   meta: {

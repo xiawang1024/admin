@@ -1,5 +1,5 @@
-import routerMap from '@/router/sysRouterMap.js'
-import { constantRouterMap } from '@/router/public'
+import { routerMap } from '@/router/index.js'
+import constantRouterMap from '@/router/public'
 
 /**
  * 过滤子系统路由

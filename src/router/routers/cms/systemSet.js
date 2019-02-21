@@ -1,8 +1,8 @@
 import Layout from '@/views/layout/Layout'
-import BasePath from '../config'
+import cmsPath from '../config'
 // TODO:左侧菜单 系统设置
 const systemSet = {
-  path: `${BasePath}/systemSet`,
+  path: `${cmsPath}/systemSet`,
   component: Layout,
   name: 'systemSet',
   meta: {
