@@ -1,5 +1,4 @@
 #app {
-
   // 主体区域
   .main-container {
     min-height: 100%;
@@ -21,7 +20,7 @@
     transition: all 0.3s;
     width: 180px !important;
     height: 100%;
-    position: fixed;
+    position: absolute;
     font-size: 0px;
     top: 0;
     bottom: 0;
@@ -65,13 +64,12 @@
       width: 100% !important;
     }
 
-    .is-active>.el-submenu__title {
+    .is-active > .el-submenu__title {
       color: #f4f4f5 !important;
     }
   }
 
   .hideSidebar {
-
     transition: all .3s;
 
     .sidebar-container {
@@ -96,7 +94,7 @@
     .el-submenu {
       overflow: hidden;
 
-      &>.el-submenu__title {
+      & > .el-submenu__title {
         transition: all 0.3s;
         padding-left: 10px !important;
 
@@ -108,8 +106,8 @@
 
     .el-menu--collapse {
       .el-submenu {
-        &>.el-submenu__title {
-          &>span {
+        & > .el-submenu__title {
+          & > span {
             height: 0;
             width: 0;
             overflow: hidden;
@@ -121,7 +119,7 @@
     }
   }
 
-  .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
+  .sidebar-container .nest-menu .el-submenu > .el-submenu__title,
   .sidebar-container .el-submenu .el-menu-item {
     transition: transform .3s;
     min-width: 180px !important;
@@ -156,7 +154,6 @@
   }
 
   .withoutAnimation {
-
     .main-container,
     .sidebar-container {
       transition: none;
@@ -165,7 +162,7 @@
 }
 
 .el-menu--vertical {
-  &>.el-menu {
+  & > .el-menu {
     .svg-icon {
       margin-right: 16px;
     }

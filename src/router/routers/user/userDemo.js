@@ -1,28 +1,27 @@
-/** When your routing table is too long, you can split it into small modules**/
-
 import Layout from '@/views/layout/Layout'
-
+import { userPath } from '../config'
 const componentsRouter = {
-  path: '/components',
+  path: `${userPath}/components`,
   component: Layout,
   redirect: 'noredirect',
   name: 'ComponentDemo',
   meta: {
     title: 'components',
-    icon: 'component'
+    icon: 'component',
+    role: 'editor'
   },
   children: [
     {
       path: 'tinymce',
       component: () => import('@/views/components-demo/tinymce'),
       name: 'TinymceDemo',
-      meta: { title: 'tinymce' }
+      meta: { title: 'tinymce', role: 'editor' }
     },
     {
       path: 'markdown',
       component: () => import('@/views/components-demo/markdown'),
       name: 'MarkdownDemo',
-      meta: { title: 'markdown' }
+      meta: { title: 'markdown', role: 'editor' }
     },
     {
       path: 'json-editor',

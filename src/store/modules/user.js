@@ -11,6 +11,8 @@ const user = {
     avatar: '',
     introduction: '',
     roles: [],
+    sysList: [],
+    sysType: '0',
     setting: {
       articlePlatform: []
     }
@@ -40,6 +42,12 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_SYS_LIST: (state, sysList) => {
+      state.sysList = sysList
+    },
+    SET_SYS_TYPE: (state, sysType) => {
+      state.sysType = sysType
     }
   },
 
@@ -78,7 +86,7 @@ const user = {
             } else {
               reject('getInfo: roles must be a non-null array !')
             }
-
+            commit('SET_SYS_LIST', data.sysList)
             commit('SET_NAME', data.name)
             commit('SET_AVATAR', data.avatar)
             commit('SET_INTRODUCTION', data.introduction)
@@ -144,6 +152,11 @@ const user = {
           resolve()
         })
       })
+    },
+    selectSysType({ commit, dispatch, getters }, sysType) {
+      commit('SET_SYS_TYPE', sysType)
+
+      dispatch('GenerateRoutes', { roles: getters.roles }) // 动态修改权限后 重绘侧边菜单
     }
   }
 }

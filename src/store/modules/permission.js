@@ -1,18 +1,22 @@
-import {
-  routerMap,
-  serverRouterMap,
-  // asyncRouterMap,
-  constantRouterMap
-} from '@/router'
+import { routerMap } from '@/router/index.js'
+import constantRouterMap from '@/router/public'
 
+/**
+ * 过滤子系统路由
+ * @param {*} routerMap
+ * @param {*} sysType
+ */
+function filterSysRouter(sysType) {
+  return routerMap.filter((item) => item.type === sysType)[0].route
+}
 /**
  * 通过meta.role判断是否与当前用户权限匹配
  * @param roles
  * @param route
  */
 function hasPermission(roles, route) {
-  if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role))
+  if (route.meta && route.meta.role) {
+    return roles.includes(route.meta.role)
   } else {
     return true
   }
@@ -25,8 +29,7 @@ function hasPermission(roles, route) {
  */
 function filterAsyncRouter(routes, roles) {
   const res = []
-
-  routes.forEach(route => {
+  routes.forEach((route) => {
     const tmp = { ...route }
     if (hasPermission(roles, tmp)) {
       if (tmp.children) {
@@ -36,15 +39,6 @@ function filterAsyncRouter(routes, roles) {
     }
   })
   return res
-}
-function generateAsyncRouter(routerMap, serverRouterMap) {
-  serverRouterMap.forEach((item, index) => {
-    item.component = routerMap[item.component]
-    if (item.children && item.children.length > 0) {
-      generateAsyncRouter(routerMap, item.children)
-    }
-  })
-  return serverRouterMap
 }
 
 const permission = {
@@ -59,16 +53,13 @@ const permission = {
     }
   },
   actions: {
-    GenerateRoutes({ commit }, data) {
-      return new Promise(resolve => {
+    GenerateRoutes({ commit, getters }, data) {
+      return new Promise((resolve) => {
         const { roles } = data
-        const asyncRouterMap = generateAsyncRouter(routerMap, serverRouterMap)
-        let accessedRouters
-        if (roles.includes('admin')) {
-          accessedRouters = asyncRouterMap
-        } else {
-          accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
-        }
+        let asyncSysRouterMap = null
+        console.log(getters.sysType)
+        asyncSysRouterMap = filterSysRouter(getters.sysType)
+        const accessedRouters = filterAsyncRouter(asyncSysRouterMap, roles)
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

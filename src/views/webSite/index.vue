@@ -1,6 +1,6 @@
 <template>
   <div class="components-container">
-    <WebSiteTag/>
+    <WebSiteTag />
     <split-pane
       :min-percent="10"
       :max-percent="30"
@@ -11,15 +11,21 @@
     >
       <template slot="paneL">
         <div class="left-container">
-          <el-scrollbar wrap-class="scrollbar-wrapper" style="height:100%;">
-            <tree/>
+          <el-scrollbar
+            wrap-class="scrollbar-wrapper"
+            style="height:100%;"
+          >
+            <tree />
           </el-scrollbar>
         </div>
       </template>
       <template slot="paneR">
         <div class="right-container">
-          <el-scrollbar wrap-class="scrollbar-wrapper" style="height:100%;">
-            <WebComponents :component-type="contextMenu.id"/>
+          <el-scrollbar
+            wrap-class="scrollbar-wrapper"
+            style="height:100%;"
+          >
+            <WebComponents :component-type="contextMenu.id" />
           </el-scrollbar>
         </div>
       </template>
@@ -48,7 +54,7 @@ export default {
     const { path } = to
     if (path === '/website/doc') {
       next(vm => {
-        vm.$store.dispatch('setViewType', { isShow: true })
+        vm.$store.dispatch('setViewTypeShow', true)
       })
     }
     next()
@@ -57,7 +63,7 @@ export default {
     console.log(from)
     const { path } = from
     if (path === '/website/doc') {
-      this.$store.dispatch('setViewType', { isShow: false })
+      this.$store.dispatch('setViewTypeShow', false)
     }
     next()
   },

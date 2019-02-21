@@ -1,8 +1,8 @@
 import Layout from '@/views/layout/Layout'
-
+import cmsPath from '../config'
 // TODO:左侧菜单 系统状态
 const systemStatus = {
-  path: '/systemStatus',
+  path: `${cmsPath}/systemStatus`,
   component: Layout,
   name: 'systemStatus',
   meta: {
@@ -26,6 +26,7 @@ const systemStatus = {
       path: 'backTask',
       component: () => import('@/views/system-status/backTask'),
       name: 'backTask',
+
       meta: { title: 'backTask', icon: 'backTask' }
     }
   ]

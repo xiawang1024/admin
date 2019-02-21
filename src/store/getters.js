@@ -11,12 +11,15 @@ const getters = {
   introduction: (state) => state.user.introduction,
   status: (state) => state.user.status,
   roles: (state) => state.user.roles,
+  sysList: (state) => state.user.sysList,
+  sysType: (state) => state.user.sysType,
   setting: (state) => state.user.setting,
   permission_routers: (state) => state.permission.routers,
   addRouters: (state) => state.permission.addRouters,
   errorLogs: (state) => state.errorLog.logs,
 
   viewType: (state) => state.webSite.viewType,
+  viewTypeShow: (state) => state.webSite.viewTypeShow,
   treeTags: (state) => state.webSite.tags,
   contextMenu: (state) => state.webSite.contextMenu
 }
