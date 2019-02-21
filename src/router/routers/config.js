@@ -3,4 +3,4 @@
  */
 
 export const cmsPath = 'cms'
-export const userPath = '/user'
+export const userPath = 'user'

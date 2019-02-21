@@ -8,7 +8,8 @@ const personAndAuthor = {
   name: 'personAndAuthor',
   meta: {
     title: 'personAndAuthor',
-    icon: 'personAndAuthor'
+    icon: 'personAndAuthor',
+    role: 'admin'
   },
   children: [
     {
@@ -18,7 +19,7 @@ const personAndAuthor = {
       path: 'permissionGroup',
       component: () => import(`@/${path}/permissionGroup`),
       name: 'permissionGroup',
-      meta: { title: 'permissionGroup', icon: 'permissionGroup' }
+      meta: { title: 'permissionGroup', icon: 'permissionGroup', role: 'admin' }
     },
     {
       /**
@@ -27,7 +28,7 @@ const personAndAuthor = {
       path: 'permissionGroupEdit',
       component: () => import(`@/${path}/permissionGroupEdit`),
       name: 'permissionGroupEdit',
-      meta: { title: 'permissionGroupEdit', icon: 'permissionGroupEdit' },
+      meta: { title: 'permissionGroupEdit', icon: 'permissionGroupEdit', role: 'admin' },
       hidden: true
     },
     {

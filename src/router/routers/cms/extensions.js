@@ -11,7 +11,7 @@ const extensions = {
   meta: {
     title: 'extensions',
     icon: 'extensions',
-    role: 'editor'
+    role: 'admin'
   },
   children: [
     {
@@ -21,7 +21,7 @@ const extensions = {
       path: 'cdnFresh',
       component: () => import(`@/${path}/cdnFresh`),
       name: 'cdnFresh',
-      meta: { title: 'cdnFresh', icon: 'cdnFresh', role: 'editor' }
+      meta: { title: 'cdnFresh', icon: 'cdnFresh', role: 'admin' }
     },
     {
       /**
@@ -30,7 +30,7 @@ const extensions = {
       path: 'extendField',
       component: () => import(`@/${path}/extendField`),
       name: 'extendField',
-      meta: { title: 'extendField', icon: 'extendField', role: 'admin' }
+      meta: { title: 'extendField', icon: 'extendField', role: 'editor' }
     },
     {
       /**

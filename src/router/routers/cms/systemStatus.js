@@ -8,7 +8,8 @@ const systemStatus = {
   name: 'systemStatus',
   meta: {
     title: 'systemStatus',
-    icon: 'systemStatus'
+    icon: 'systemStatus',
+    role: 'admin'
   },
   children: [
     {
@@ -18,7 +19,7 @@ const systemStatus = {
       path: 'logs',
       component: () => import(`@/${path}/logs`),
       name: 'logs',
-      meta: { title: 'logs', icon: 'logs' }
+      meta: { title: 'logs', icon: 'logs', role: 'admin' }
     },
     {
       /**
@@ -28,7 +29,7 @@ const systemStatus = {
       component: () => import(`@/${path}/backTask`),
       name: 'backTask',
 
-      meta: { title: 'backTask', icon: 'backTask' }
+      meta: { title: 'backTask', icon: 'backTask', role: 'admin' }
     }
   ]
 }

@@ -9,7 +9,7 @@ const systemSet = {
   meta: {
     title: 'systemSet',
     icon: 'systemSet',
-    role: 'editor'
+    role: 'admin'
   },
   children: [
     {
@@ -22,7 +22,7 @@ const systemSet = {
       meta: {
         title: 'siteSet',
         icon: 'siteSet',
-        role: 'editor'
+        role: 'admin'
       }
     },
     {
@@ -32,7 +32,7 @@ const systemSet = {
       path: 'docSource',
       component: () => import(`@/${path}/docSource`),
       name: 'DocSource',
-      meta: { title: 'docSource', icon: 'docSource', role: 'editor' }
+      meta: { title: 'docSource', icon: 'docSource', role: 'admin' }
     },
     {
       /**
@@ -41,7 +41,7 @@ const systemSet = {
       path: 'platformSet',
       component: () => import(`@/${path}/platformSet`),
       name: 'platformSet',
-      meta: { title: 'platformSet', icon: 'platformSet', role: 'editor' }
+      meta: { title: 'platformSet', icon: 'platformSet', role: 'admin' }
     },
     {
       /**
