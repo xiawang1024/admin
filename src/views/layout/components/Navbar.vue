@@ -8,16 +8,16 @@
 
     <breadcrumb class="breadcrumb-container" />
     <div class="view-type">
-      <ViewType/>
+      <ViewType />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
-import ViewType from '@/components/ViewType'
+import Breadcrumb from '@/components/public/Breadcrumb'
+import Hamburger from '@/components/public/Hamburger'
+import ViewType from '@/components/cms/ViewType'
 
 export default {
   components: {

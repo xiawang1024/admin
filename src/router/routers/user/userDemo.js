@@ -1,33 +1,36 @@
 import Layout from '@/views/layout/Layout'
 import { userPath } from '../config'
+
+const path = `views/${userPath}/components`
 // TODO:左侧菜单 系统设置
 const userDemo = {
-  path: `${userPath}/components`,
+  path: `/${userPath}/components`,
   component: Layout,
   redirect: 'noredirect',
   name: 'ComponentDemo',
   meta: {
     title: 'components',
-    icon: 'component'
+    icon: 'component',
+    role: 'admin'
   },
   children: [
     {
       path: 'tinymce',
-      component: () => import('@/views/components-demo/tinymce'),
+      component: () => import(`@/${path}/tinymce`),
       name: 'TinymceDemo',
       meta: { title: 'tinymce' }
     },
     {
       path: 'dnd-list',
-      component: () => import('@/views/components-demo/dndList'),
+      component: () => import(`@/${path}/dndList`),
       name: 'DndListDemo',
-      meta: { title: 'dndList' }
+      meta: { title: 'dndList', role: 'admin' }
     },
     {
       path: 'drag-kanban',
-      component: () => import('@/views/components-demo/dragKanban'),
+      component: () => import(`@/${path}/dragKanban`),
       name: 'DragKanbanDemo',
-      meta: { title: 'dragKanban' }
+      meta: { title: 'dragKanban', role: 'editor' }
     }
   ]
 }
